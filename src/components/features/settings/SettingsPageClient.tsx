@@ -2,6 +2,7 @@
 
 import { useTranslation } from "react-i18next";
 
+import { PremiumSideNav } from "@/components/premium/navigation/PremiumSideNav";
 import AppLayout from "@/components/ui/AppLayout";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
@@ -171,7 +172,7 @@ export function SettingsPageClient() {
 
   return (
     <AppLayout
-      navigationHide
+      navigation={<PremiumSideNav />}
       toolsHide
       content={
         <ContentLayout

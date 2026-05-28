@@ -12,6 +12,12 @@
   --premium-topnav-height: #{$topnav-height};
 }
 
+html,
+body {
+  background: $navy-50;
+  color: $slate-900;
+}
+
 .premium-glass {
   background: $glass-bg;
   backdrop-filter: blur(12px);
@@ -20,7 +26,7 @@
 }
 
 .premium-gradient-primary {
-  background: linear-gradient(135deg, $navy-800 0%, $indigo-600 50%, $navy-700 100%);
+  background: linear-gradient(135deg, $navy-100 0%, $indigo-50 50%, $navy-50 100%);
 }
 
 .premium-gradient-hero {
@@ -28,23 +34,24 @@
 }
 
 .premium-gradient-card {
-  background: linear-gradient(135deg, $navy-800 0%, $navy-700 100%);
+  background: $white;
+  border: 1px solid $slate-200;
 }
 
 .premium-gradient-green {
-  background: linear-gradient(135deg, #065f46 0%, #10b981 100%);
+  background: linear-gradient(135deg, #d4edda 0%, $emerald-400 100%);
 }
 
 .premium-gradient-blue {
-  background: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #cfe2ff 0%, $indigo-400 100%);
 }
 
 .premium-gradient-purple {
-  background: linear-gradient(135deg, #2e1065 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #e2d9f3 0%, #8b5cf6 100%);
 }
 
 .premium-gradient-amber {
-  background: linear-gradient(135deg, #78350f 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #fff3cd 0%, $amber-400 100%);
 }
 
 .premium-shimmer {
@@ -54,12 +61,7 @@
 }
 
 .premium-shimmer-dark {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.04) 25%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.04) 75%
-  );
+  background: linear-gradient(90deg, $slate-100 25%, $slate-50 50%, $slate-100 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }
@@ -76,10 +78,10 @@
 @keyframes glow-pulse {
   0%,
   100% {
-    box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 8px rgba(9, 105, 218, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    box-shadow: 0 0 20px rgba(9, 105, 218, 0.6);
   }
 }
 
@@ -88,7 +90,7 @@
 }
 
 .premium-text-gradient {
-  background: linear-gradient(135deg, $indigo-300 0%, $white 100%);
+  background: linear-gradient(135deg, $indigo-500 0%, $navy-800 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -108,15 +110,15 @@
 }
 
 .financial-card-dark {
-  background: linear-gradient(135deg, $navy-800 0%, $navy-700 100%);
+  background: $white;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid $slate-200;
   transition: all 0.2s ease;
   overflow: hidden;
 
   &:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    border-color: $slate-300;
   }
 }
 

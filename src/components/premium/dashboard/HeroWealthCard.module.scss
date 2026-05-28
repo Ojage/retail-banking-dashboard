@@ -107,7 +107,8 @@
   position: relative;
   padding: 32px;
   border-radius: 16px;
-  background: linear-gradient(135deg, $navy-800 0%, $navy-700 100%);
+  background: $white;
+  border: 1px solid $slate-200;
 }
 
 .shimmerBlock {
