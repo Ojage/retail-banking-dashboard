@@ -1,0 +1,16 @@
+{
+  "title": "Transactions",
+  "subtitle": "Consultez et filtrez toutes les transactions sur vos comptes.",
+  "filter_all": "Tout",
+  "filter_credit": "Crédit",
+  "filter_debit": "Débit",
+  "col_date": "Date",
+  "col_description": "Description",
+  "col_type": "Type",
+  "col_amount": "Montant",
+  "select_account_placeholder": "Sélectionner un compte",
+  "no_transactions": "Aucune transaction",
+  "no_transactions_desc": "Aucune transaction ne correspond au filtre actuel.",
+  "newest_first": "Plus récent en premier",
+  "oldest_first": "Plus ancien en premier"
+}

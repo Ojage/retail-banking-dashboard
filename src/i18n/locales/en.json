@@ -1,0 +1,230 @@
+{
+  "landing": {
+    "badge": "FDIC Insured",
+    "hero": {
+      "title": "Banking, reimagined for the modern world.",
+      "subtitle": "RetBankX gives you real-time insights, instant transfers, and enterprise-grade security — all in one intuitive dashboard.",
+      "cta": "Get started free",
+      "signin": "Sign in"
+    },
+    "stats": {
+      "assets": { "value": "$4.2B+", "label": "Assets managed" },
+      "uptime": { "value": "99.99%", "label": "Platform uptime" },
+      "users": { "value": "127K+", "label": "Active users" },
+      "rating": { "value": "4.9★", "label": "App Store rating" }
+    },
+    "features": {
+      "eyebrow": "Platform capabilities",
+      "title": "Everything you need to manage your money.",
+      "subtitle": "Real-time visibility, intelligent categorization, and instant transfers across all your accounts.",
+      "items": {
+        "realtime": {
+          "name": "Real-time dashboard",
+          "desc": "View all your accounts, balances, and net worth in a single, unified interface that updates instantly."
+        },
+        "insights": {
+          "name": "Smart transaction insights",
+          "desc": "Automatically categorized transactions with powerful filtering and sorting to track your spending patterns."
+        },
+        "transfers": {
+          "name": "Instant fund transfers",
+          "desc": "Move money between your accounts in real time with our streamlined transfer interface and built-in validation."
+        },
+        "security": {
+          "name": "Bank-grade security",
+          "desc": "AES-256 encryption, multi-factor authentication, and continuous monitoring keep your data and funds safe."
+        },
+        "global": {
+          "name": "Global accessibility",
+          "desc": "Full bilingual support (English / Français) with locale-aware formatting for dates and currencies."
+        },
+        "audit": {
+          "name": "Detailed audit trails",
+          "desc": "Every transfer is logged with full traceability, giving you complete visibility into account activity."
+        }
+      }
+    },
+    "security": {
+      "title": "Built on a foundation of trust.",
+      "subtitle": "RetBankX uses the same security infrastructure trusted by the world's largest financial institutions.",
+      "items": {
+        "encryption": {
+          "label": "AES-256 Encryption",
+          "desc": "All data encrypted at rest and in transit"
+        },
+        "soc2": {
+          "label": "SOC 2 Compliant",
+          "desc": "Independently audited security controls"
+        },
+        "monitoring": {
+          "label": "24/7 Monitoring",
+          "desc": "Continuous fraud detection and alerts"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to take control of your finances?",
+      "subtitle": "Join thousands of users who trust RetBankX for their banking needs.",
+      "button": "Get started free"
+    },
+    "footer": {
+      "brand": "RetBankX",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact",
+      "legal": "RetBankX is a financial technology company, not a bank. Banking services provided by partner banks, FDIC insured up to $250,000. © {{year}} RetBankX, Inc. All rights reserved."
+    }
+  },
+  "auth": {
+    "logo": "RetBankX",
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to your account to continue.",
+      "demoWarning": "Demo mode — sign up for a new account or use any previously created account.",
+      "email": { "label": "Email", "placeholder": "you@example.com" },
+      "password": { "label": "Password", "placeholder": "Enter your password" },
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "createLink": "Create one",
+      "errors": {
+        "missingEmail": "Please enter your email address.",
+        "missingPassword": "Please enter your password.",
+        "failed": "Login failed. Please try again."
+      }
+    },
+    "signup": {
+      "title": "Create your account",
+      "subtitle": "Start managing your finances in minutes.",
+      "name": { "label": "Full name", "placeholder": "John Smith" },
+      "email": { "label": "Email", "placeholder": "you@example.com" },
+      "password": { "label": "Password", "placeholder": "At least 8 characters" },
+      "submit": "Create account",
+      "submitting": "Creating account...",
+      "hasAccount": "Already have an account?",
+      "signinLink": "Sign in",
+      "errors": {
+        "missingName": "Please enter your full name.",
+        "missingEmail": "Please enter your email address.",
+        "passwordTooShort": "Password must be at least 8 characters.",
+        "failed": "Signup failed. Please try again."
+      }
+    }
+  },
+  "nav": {
+    "mainNavigation": "Main navigation",
+    "dashboard": "Dashboard",
+    "transactions": "Transactions",
+    "transfer": "Transfer",
+    "signOut": "Sign out",
+    "userMenuLabel": "User menu",
+    "showUserMenu": "Show user menu",
+    "closeUserMenu": "Close user menu"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Your complete financial overview at a glance.",
+    "netWorth": {
+      "label": "Total Net Worth",
+      "subtitle": "Across all accounts"
+    },
+    "accounts": {
+      "title": "Your Accounts",
+      "loading": "Loading accounts...",
+      "error": "Failed to load accounts",
+      "empty": "No accounts found",
+      "balance": "Available Balance",
+      "currency": "Currency"
+    }
+  },
+  "transactions": {
+    "title": "Transactions",
+    "description": "View and filter all transactions across your accounts.",
+    "table": {
+      "loading": "Loading transactions...",
+      "date": "Date",
+      "description": "Description",
+      "type": "Type",
+      "amount": "Amount",
+      "newest": "Newest first",
+      "oldest": "Oldest first",
+      "selectAccount": "Select an account",
+      "filter": {
+        "all": "All",
+        "credit": "Credit",
+        "debit": "Debit"
+      },
+      "empty": {
+        "title": "No transactions",
+        "desc": "No transactions match the current filter."
+      }
+    }
+  },
+  "transfer": {
+    "title": "Transfer Funds",
+    "description": "Move funds between your accounts instantly.",
+    "form": {
+      "fromAccount": { "label": "From Account", "placeholder": "Select source account" },
+      "toAccount": { "label": "To Account", "placeholder": "Select destination account" },
+      "amount": {
+        "label": "Amount (USD)",
+        "constraint": "Enter an amount greater than $0.00",
+        "placeholder": "0.00"
+      },
+      "submit": "Transfer",
+      "submitting": "Processing...",
+      "reset": "Reset",
+      "success": {
+        "header": "Transfer successful",
+        "text": "Your funds have been transferred successfully."
+      },
+      "error": {
+        "header": "Transfer failed",
+        "generic": "An unexpected error occurred. Please try again."
+      },
+      "ariaLabel": "Fund transfer form",
+      "balanceLabel": "Balance: {{balance}}"
+    }
+  },
+  "accounts": {
+    "title": "Accounts",
+    "description": "View and manage all your banking accounts in one place."
+  },
+  "analytics": {
+    "title": "Analytics",
+    "description": "In-depth analysis of your spending, income, and financial trends."
+  },
+  "investments": {
+    "title": "Investments",
+    "description": "Track your investment portfolio performance and holdings."
+  },
+  "cards": {
+    "title": "Cards",
+    "description": "Manage your debit and credit cards securely."
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Manage your profile, preferences, and security settings."
+  },
+  "language": {
+    "ariaLabel": "Change language",
+    "en": "English",
+    "fr": "Français"
+  },
+  "password": {
+    "visible": "Password (visible)",
+    "hidden": "Password (hidden)",
+    "show": "Show password",
+    "hide": "Hide password"
+  },
+  "metadata": {
+    "layout": {
+      "title": "RetBankX — Retail Banking Dashboard",
+      "description": "Manage your accounts, transactions, and transfers."
+    },
+    "home": {
+      "title": "RetBankX — Modern Banking",
+      "description": "RetBankX gives you real-time insights, instant transfers, and enterprise-grade security in one intuitive dashboard."
+    }
+  }
+}

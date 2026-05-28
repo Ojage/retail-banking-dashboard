@@ -1,0 +1,18 @@
+{
+  "title": "Virement",
+  "subtitle": "Transférez des fonds entre vos comptes instantanément.",
+  "form_title": "Virement de fonds",
+  "form_subtitle": "Transférez des fonds entre vos comptes instantanément.",
+  "from_account": "Compte source",
+  "to_account": "Compte destinataire",
+  "amount": "Montant (USD)",
+  "amount_constraint": "Saisissez un montant supérieur à 0,00 $",
+  "select_source": "Sélectionner le compte source",
+  "select_destination": "Sélectionner le compte destinataire",
+  "btn_transfer": "Transférer",
+  "btn_reset": "Réinitialiser",
+  "processing": "Traitement...",
+  "success_header": "Virement réussi",
+  "success_content": "Vos fonds ont été transférés avec succès.",
+  "error_header": "Échec du virement"
+}

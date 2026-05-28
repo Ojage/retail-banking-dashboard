@@ -1,0 +1,16 @@
+{
+  "title": "Transactions",
+  "subtitle": "View and filter all transactions across your accounts.",
+  "filter_all": "All",
+  "filter_credit": "Credit",
+  "filter_debit": "Debit",
+  "col_date": "Date",
+  "col_description": "Description",
+  "col_type": "Type",
+  "col_amount": "Amount",
+  "select_account_placeholder": "Select an account",
+  "no_transactions": "No transactions",
+  "no_transactions_desc": "No transactions match the current filter.",
+  "newest_first": "Newest first",
+  "oldest_first": "Oldest first"
+}

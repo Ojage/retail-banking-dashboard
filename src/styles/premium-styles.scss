@@ -1,0 +1,138 @@
+@use "premium-theme" as *;
+
+:root {
+  --premium-navy-900: #{$navy-900};
+  --premium-navy-800: #{$navy-800};
+  --premium-navy-700: #{$navy-700};
+  --premium-indigo-500: #{$indigo-500};
+  --premium-emerald-400: #{$emerald-400};
+  --premium-amber-400: #{$amber-400};
+  --premium-red-500: #{$red-500};
+  --premium-sidebar-width: #{$sidebar-width};
+  --premium-topnav-height: #{$topnav-height};
+}
+
+.premium-glass {
+  background: $glass-bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid $glass-border;
+}
+
+.premium-gradient-primary {
+  background: linear-gradient(135deg, $navy-800 0%, $indigo-600 50%, $navy-700 100%);
+}
+
+.premium-gradient-hero {
+  background: linear-gradient(135deg, $navy-900 0%, $indigo-600 70%, $navy-800 100%);
+}
+
+.premium-gradient-card {
+  background: linear-gradient(135deg, $navy-800 0%, $navy-700 100%);
+}
+
+.premium-gradient-green {
+  background: linear-gradient(135deg, #065f46 0%, #10b981 100%);
+}
+
+.premium-gradient-blue {
+  background: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 100%);
+}
+
+.premium-gradient-purple {
+  background: linear-gradient(135deg, #2e1065 0%, #8b5cf6 100%);
+}
+
+.premium-gradient-amber {
+  background: linear-gradient(135deg, #78350f 0%, #f59e0b 100%);
+}
+
+.premium-shimmer {
+  background: linear-gradient(90deg, $slate-200 25%, $slate-100 50%, $slate-200 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.premium-shimmer-dark {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+  }
+}
+
+.premium-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.premium-text-gradient {
+  background: linear-gradient(135deg, $indigo-300 0%, $white 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.financial-card {
+  background: $white;
+  border-radius: 12px;
+  border: 1px solid $slate-200;
+  transition: all 0.2s ease;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    border-color: $slate-300;
+  }
+}
+
+.financial-card-dark {
+  background: linear-gradient(135deg, $navy-800 0%, $navy-700 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.skeleton-block {
+  border-radius: 8px;
+}
+
+.skeleton-line {
+  height: 14px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.skeleton-line-sm {
+  height: 10px;
+  width: 60%;
+  margin-bottom: 6px;
+  border-radius: 4px;
+}

@@ -1,0 +1,14 @@
+@use "@cloudscape-design/design-tokens/index" as awsui;
+@use "../../../styles/variables" as *;
+
+.spinner-overlay {
+  display: flex;
+  align-items: center;
+  gap: $space-s;
+  color: awsui.$color-text-body-secondary;
+  padding: $space-s 0;
+}
+
+.form-wrapper {
+  max-width: 560px;
+}

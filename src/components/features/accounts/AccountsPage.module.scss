@@ -1,0 +1,33 @@
+@use "../../../styles/premium-theme" as *;
+
+.tableSection {
+  margin-top: 24px;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.status--active {
+  color: $emerald-500;
+  background: rgba($emerald-500, 0.08);
+}
+
+.status--dormant {
+  color: $amber-500;
+  background: rgba($amber-500, 0.08);
+}
+
+.status--closed {
+  color: $red-500;
+  background: rgba($red-500, 0.08);
+}
+
+.amount {
+  font-weight: 600;
+  font-family: var(--font-heading);
+}

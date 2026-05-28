@@ -1,0 +1,233 @@
+{
+  "landing": {
+    "badge": "Assuré par la FDIC",
+    "hero": {
+      "title": "Une banque repensée pour le monde moderne.",
+      "subtitle": "RetBankX vous offre des informations en temps réel, des transferts instantanés et une sécurité de niveau professionnel — le tout dans un tableau de bord intuitif.",
+      "cta": "Commencer gratuitement",
+      "signin": "Se connecter"
+    },
+    "stats": {
+      "assets": { "value": "4,2 Md$+", "label": "Actifs gérés" },
+      "uptime": { "value": "99,99 %", "label": "Disponibilité" },
+      "users": { "value": "127 K+", "label": "Utilisateurs actifs" },
+      "rating": { "value": "4,9★", "label": "Note App Store" }
+    },
+    "features": {
+      "eyebrow": "Fonctionnalités",
+      "title": "Tout ce qu'il vous faut pour gérer votre argent.",
+      "subtitle": "Visibilité en temps réel, catégorisation intelligente et transferts instantanés sur tous vos comptes.",
+      "items": {
+        "realtime": {
+          "name": "Tableau de bord en temps réel",
+          "desc": "Consultez tous vos comptes, soldes et patrimoine net dans une interface unique et unifiée qui se met à jour instantanément."
+        },
+        "insights": {
+          "name": "Aperçus intelligents",
+          "desc": "Transactions automatiquement catégorisées avec filtres et tris puissants pour suivre vos habitudes de dépenses."
+        },
+        "transfers": {
+          "name": "Transferts instantanés",
+          "desc": "Déplacez de l'argent entre vos comptes en temps réel grâce à notre interface rationalisée et à la validation intégrée."
+        },
+        "security": {
+          "name": "Sécurité de niveau bancaire",
+          "desc": "Chiffrement AES-256, authentification multi-facteurs et surveillance continue pour protéger vos données et vos fonds."
+        },
+        "global": {
+          "name": "Accessibilité mondiale",
+          "desc": "Prise en charge bilingue complète (anglais / français) avec formatage des dates et des devises adapté à la langue."
+        },
+        "audit": {
+          "name": "Pistes d'audit détaillées",
+          "desc": "Chaque transfert est enregistré avec une traçabilité complète, vous offrant une visibilité totale sur l'activité de vos comptes."
+        }
+      }
+    },
+    "security": {
+      "title": "Bâti sur une base de confiance.",
+      "subtitle": "RetBankX utilise la même infrastructure de sécurité que celle des plus grandes institutions financières mondiales.",
+      "items": {
+        "encryption": {
+          "label": "Chiffrement AES-256",
+          "desc": "Toutes les données chiffrées au repos et en transit"
+        },
+        "soc2": {
+          "label": "Conforme SOC 2",
+          "desc": "Contrôles de sécurité audités de manière indépendante"
+        },
+        "monitoring": {
+          "label": "Surveillance 24/7",
+          "desc": "Détection continue des fraudes et alertes"
+        }
+      }
+    },
+    "cta": {
+      "title": "Prêt à prendre le contrôle de vos finances ?",
+      "subtitle": "Rejoignez des milliers d'utilisateurs qui font confiance à RetBankX pour leurs besoins bancaires.",
+      "button": "Commencer gratuitement"
+    },
+    "footer": {
+      "brand": "RetBankX",
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation",
+      "contact": "Contact",
+      "legal": "RetBankX est une société de technologie financière, et non une banque. Les services bancaires sont fournis par des banques partenaires, assurées par la FDIC jusqu'à 250 000 $. © {{year}} RetBankX, Inc. Tous droits réservés."
+    }
+  },
+  "auth": {
+    "logo": "RetBankX",
+    "login": {
+      "title": "Bon retour parmi nous",
+      "subtitle": "Connectez-vous à votre compte pour continuer.",
+      "demoWarning": "Mode démo — créez un nouveau compte ou utilisez un compte existant.",
+      "email": { "label": "E-mail", "placeholder": "vous@exemple.com" },
+      "password": { "label": "Mot de passe", "placeholder": "Saisissez votre mot de passe" },
+      "submit": "Se connecter",
+      "submitting": "Connexion en cours...",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "createLink": "Créer un compte",
+      "errors": {
+        "missingEmail": "Veuillez saisir votre adresse e-mail.",
+        "missingPassword": "Veuillez saisir votre mot de passe.",
+        "failed": "Échec de la connexion. Veuillez réessayer."
+      }
+    },
+    "signup": {
+      "title": "Créez votre compte",
+      "subtitle": "Commencez à gérer vos finances en quelques minutes.",
+      "name": { "label": "Nom complet", "placeholder": "Jean Dupont" },
+      "email": { "label": "E-mail", "placeholder": "vous@exemple.com" },
+      "password": { "label": "Mot de passe", "placeholder": "Au moins 8 caractères" },
+      "submit": "Créer un compte",
+      "submitting": "Création du compte...",
+      "hasAccount": "Vous avez déjà un compte ?",
+      "signinLink": "Se connecter",
+      "errors": {
+        "missingName": "Veuillez saisir votre nom complet.",
+        "missingEmail": "Veuillez saisir votre adresse e-mail.",
+        "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères.",
+        "failed": "Échec de l'inscription. Veuillez réessayer."
+      }
+    }
+  },
+  "nav": {
+    "mainNavigation": "Navigation principale",
+    "dashboard": "Tableau de bord",
+    "transactions": "Transactions",
+    "transfer": "Virement",
+    "signOut": "Déconnexion",
+    "userMenuLabel": "Menu utilisateur",
+    "showUserMenu": "Afficher le menu",
+    "closeUserMenu": "Fermer le menu"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "description": "Votre aperçu financier complet en un coup d'œil.",
+    "netWorth": {
+      "label": "Patrimoine net",
+      "subtitle": "Tous comptes confondus"
+    },
+    "accounts": {
+      "title": "Vos comptes",
+      "loading": "Chargement des comptes...",
+      "error": "Échec du chargement des comptes",
+      "empty": "Aucun compte trouvé",
+      "balance": "Solde disponible",
+      "currency": "Devise"
+    }
+  },
+  "transactions": {
+    "title": "Transactions",
+    "description": "Consultez et filtrez toutes les transactions de vos comptes.",
+    "table": {
+      "loading": "Chargement des transactions...",
+      "date": "Date",
+      "description": "Description",
+      "type": "Type",
+      "amount": "Montant",
+      "newest": "Plus récentes",
+      "oldest": "Plus anciennes",
+      "selectAccount": "Sélectionner un compte",
+      "filter": {
+        "all": "Toutes",
+        "credit": "Crédit",
+        "debit": "Débit"
+      },
+      "empty": {
+        "title": "Aucune transaction",
+        "desc": "Aucune transaction ne correspond au filtre actuel."
+      }
+    }
+  },
+  "transfer": {
+    "title": "Virement",
+    "description": "Déplacez des fonds entre vos comptes instantanément.",
+    "form": {
+      "fromAccount": { "label": "Compte source", "placeholder": "Sélectionnez le compte source" },
+      "toAccount": {
+        "label": "Compte destinataire",
+        "placeholder": "Sélectionnez le compte destinataire"
+      },
+      "amount": {
+        "label": "Montant (USD)",
+        "constraint": "Saisissez un montant supérieur à 0,00 $",
+        "placeholder": "0,00"
+      },
+      "submit": "Effectuer le virement",
+      "submitting": "Traitement en cours...",
+      "reset": "Réinitialiser",
+      "success": {
+        "header": "Virement réussi",
+        "text": "Vos fonds ont été transférés avec succès."
+      },
+      "error": {
+        "header": "Échec du virement",
+        "generic": "Une erreur inattendue s'est produite. Veuillez réessayer."
+      },
+      "ariaLabel": "Formulaire de virement",
+      "balanceLabel": "Solde : {{balance}}"
+    }
+  },
+  "accounts": {
+    "title": "Comptes",
+    "description": "Consultez et gérez tous vos comptes bancaires en un seul endroit."
+  },
+  "analytics": {
+    "title": "Analytique",
+    "description": "Analyse approfondie de vos dépenses, revenus et tendances financières."
+  },
+  "investments": {
+    "title": "Investissements",
+    "description": "Suivez la performance et les avoirs de votre portefeuille d'investissement."
+  },
+  "cards": {
+    "title": "Cartes",
+    "description": "Gérez vos cartes de débit et de crédit en toute sécurité."
+  },
+  "settings": {
+    "title": "Paramètres",
+    "description": "Gérez votre profil, vos préférences et vos paramètres de sécurité."
+  },
+  "language": {
+    "ariaLabel": "Changer de langue",
+    "en": "English",
+    "fr": "Français"
+  },
+  "password": {
+    "visible": "Mot de passe (visible)",
+    "hidden": "Mot de passe (masqué)",
+    "show": "Afficher le mot de passe",
+    "hide": "Masquer le mot de passe"
+  },
+  "metadata": {
+    "layout": {
+      "title": "RetBankX — Tableau de bord bancaire",
+      "description": "Gérez vos comptes, transactions et virements."
+    },
+    "home": {
+      "title": "RetBankX — Banque moderne",
+      "description": "RetBankX vous offre des informations en temps réel, des transferts instantanés et une sécurité de niveau professionnel dans un tableau de bord intuitif."
+    }
+  }
+}

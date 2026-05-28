@@ -1,0 +1,159 @@
+@use "../../../styles/premium-theme" as *;
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  border-radius: 14px;
+  padding: 24px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at top right,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardType {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cardStatus {
+  display: flex;
+}
+
+.cardChip {
+  margin-bottom: 8px;
+}
+
+.cardNumber {
+  font-size: 18px;
+  font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.cardDetails {
+  display: flex;
+  gap: 32px;
+}
+
+.cardDetailLabel {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 4px;
+}
+
+.cardDetailValue {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cardActions {
+  display: flex;
+  gap: 8px;
+}
+
+.cardLimit {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: auto;
+}
+
+.cardLimitTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cardLimitLabel {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.cardLimitUsed {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cardLimitBar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.cardLimitFill {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.cardLimitRemaining {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.txnSection {
+  margin-top: 24px;
+}
+
+.amountCredit {
+  font-weight: 600;
+  color: $emerald-500;
+}
+
+.amountDebit {
+  font-weight: 600;
+  color: $slate-900;
+}
+
+@media (max-width: 992px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}

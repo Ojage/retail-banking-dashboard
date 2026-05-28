@@ -1,0 +1,42 @@
+@use "@cloudscape-design/design-tokens/index" as awsui;
+
+// Breakpoints
+$bp-mobile: 375px;
+$bp-tablet: 768px;
+$bp-desktop: 1200px;
+
+// Spacing scale (mirrors CloudScape static tokens)
+$space-xxxs: 2px;
+$space-xxs: 4px;
+$space-xs: 8px;
+$space-s: 12px;
+$space-m: 16px;
+$space-l: 20px;
+$space-xl: 24px;
+$space-xxl: 32px;
+$space-xxxl: 40px;
+
+// Font families
+$font-heading:
+  "Satoshi",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+$font-body:
+  "Switzer",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+
+// Font sizes
+$font-size-body-s: 12px;
+$font-size-body-m: 14px;
+$font-size-heading-xs: 14px;
+$font-size-heading-s: 16px;
+$font-size-heading-m: 18px;
+$font-size-heading-l: 20px;
+$font-size-heading-xl: 24px;

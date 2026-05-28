@@ -1,0 +1,9 @@
+{
+  "title": "Dashboard",
+  "subtitle": "Your complete financial overview at a glance.",
+  "net_worth_label": "Total Net Worth",
+  "net_worth_subtitle": "Across all accounts",
+  "accounts_header": "Your Accounts",
+  "available_balance": "Available Balance",
+  "currency": "Currency"
+}

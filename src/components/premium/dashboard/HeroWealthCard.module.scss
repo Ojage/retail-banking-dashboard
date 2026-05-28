@@ -1,0 +1,115 @@
+@use "../../../styles/premium-theme" as *;
+
+.hero {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 180px;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, $navy-900 0%, $indigo-600 50%, $navy-800 100%);
+}
+
+.heroContent {
+  position: relative;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.heroMain {
+  flex: 1;
+}
+
+.heroLabel {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.heroAmount {
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-family: var(--font-heading);
+  margin-bottom: 12px;
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.heroGrowth {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.growthPositive {
+  color: $emerald-400;
+  background: rgba($emerald-400, 0.1);
+}
+
+.growthNegative {
+  color: $red-500;
+  background: rgba($red-500, 0.1);
+}
+
+.heroPeriod {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.heroVisual {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.sparkline {
+  opacity: 0.6;
+}
+
+.heroAccounts {
+  display: flex;
+  gap: 8px;
+}
+
+.heroAccountBadge {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.heroShimmer {
+  position: relative;
+  padding: 32px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, $navy-800 0%, $navy-700 100%);
+}
+
+.shimmerBlock {
+  border-radius: 6px;
+}

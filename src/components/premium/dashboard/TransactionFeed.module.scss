@@ -1,0 +1,137 @@
+@use "../../../styles/premium-theme" as *;
+
+.feed {
+  background: $white;
+  border: 1px solid $slate-200;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.feedHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $slate-900;
+  font-family: var(--font-heading);
+  border-bottom: 1px solid $slate-200;
+}
+
+.feedCount {
+  font-size: 12px;
+  font-weight: 500;
+  color: $slate-400;
+}
+
+.txnList {
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.txnRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  transition: background 0.15s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: $slate-50;
+  }
+
+  & + & {
+    border-top: 1px solid $slate-100;
+  }
+}
+
+.txnMerchant {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.txnLogo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.txnInfo {
+  min-width: 0;
+}
+
+.txnDescription {
+  font-size: 13px;
+  font-weight: 500;
+  color: $slate-900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.txnMeta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.txnCategory {
+  font-size: 11px;
+  color: $slate-500;
+}
+
+.txnDot {
+  font-size: 11px;
+  color: $slate-300;
+}
+
+.txnDate {
+  font-size: 11px;
+  color: $slate-400;
+}
+
+.txnRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.txnAmount {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+.amountCredit {
+  color: $emerald-500;
+}
+
+.amountDebit {
+  color: $slate-900;
+}
+
+.txnSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, $navy-800 0%, $navy-700 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}

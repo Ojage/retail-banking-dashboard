@@ -1,0 +1,23 @@
+// Satoshi — headings (sharp, premium, geometric)
+// Switzer — body text (professional, readable, organized)
+// Both from Indian Type Foundry — Fontshare
+
+$font-heading:
+  "Satoshi",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+$font-body:
+  "Switzer",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+
+:root {
+  --font-heading: #{$font-heading};
+  --font-body: #{$font-body};
+}

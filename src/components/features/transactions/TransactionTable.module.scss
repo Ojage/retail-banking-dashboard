@@ -1,0 +1,33 @@
+@use "@cloudscape-design/design-tokens/index" as awsui;
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.transaction__amount {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.transaction__amount--credit {
+  color: awsui.$color-text-status-success;
+}
+
+.transaction__amount--debit {
+  color: awsui.$color-text-status-error;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: $space-m;
+  flex-wrap: wrap;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.account-select {
+  min-width: 220px;
+}

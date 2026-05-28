@@ -1,0 +1,8 @@
+.next/
+node_modules/
+coverage/
+public/
+.next/
+*.config.js
+*.config.mjs
+next-env.d.ts

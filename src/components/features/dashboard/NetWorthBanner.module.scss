@@ -1,0 +1,41 @@
+@use "@cloudscape-design/design-tokens/index" as awsui;
+@use "../../../styles/variables" as *;
+
+.banner {
+  background: awsui.$color-background-button-primary-default;
+  border-radius: awsui.$border-radius-container;
+  padding: $space-xxl;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $space-m;
+}
+
+.banner__label {
+  font-size: $font-size-body-m;
+  opacity: 0.85;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: $space-xxs;
+}
+
+.banner__amount {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.banner__subtitle {
+  font-size: $font-size-body-s;
+  opacity: 0.75;
+  margin-top: $space-xxs;
+}
+
+.banner__icon {
+  opacity: 0.25;
+  font-size: 64px;
+}

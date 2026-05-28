@@ -1,0 +1,277 @@
+@use "../../../styles/premium-theme" as *;
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: $topnav-height;
+  background: linear-gradient(135deg, $navy-900 0%, $navy-800 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+}
+
+.inner {
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brandIcon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, $indigo-500 0%, $indigo-400 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 2px 12px rgba($indigo-500, 0.3);
+}
+
+.brandText {
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.03em;
+  font-family: var(--font-heading);
+}
+
+.brandBadge {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba($indigo-500, 0.15);
+  color: $indigo-300;
+  border: 1px solid rgba($indigo-500, 0.2);
+  margin-left: 2px;
+}
+
+.links {
+  display: flex;
+  gap: 2px;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  letter-spacing: 0.01em;
+
+  &:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.search {
+  flex: 1;
+  max-width: 340px;
+  margin: 0 auto;
+
+  input {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    color: white !important;
+    font-size: 13px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.35) !important;
+    }
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-color: $indigo-500 !important;
+      box-shadow: 0 0 0 2px rgba($indigo-500, 0.15) !important;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.notificationBtn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+}
+
+.notificationDot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $emerald-400;
+  border: 2px solid $navy-800;
+}
+
+.userMenu {
+  position: relative;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  padding: 5px 12px 5px 5px;
+  border-radius: 10px;
+  color: white;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, $indigo-500 0%, $indigo-400 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+}
+
+.userRole {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: $white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  min-width: 240px;
+  z-index: 200;
+  border: 1px solid $slate-200;
+  overflow: hidden;
+}
+
+.dropdownHeader {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dropdownAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, $indigo-500 0%, $indigo-400 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dropdownName {
+  font-size: 14px;
+  font-weight: 600;
+  color: $slate-900;
+}
+
+.dropdownEmail {
+  font-size: 12px;
+  color: $slate-500;
+  margin-top: 1px;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: $slate-200;
+}
+
+.dropdownItem {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: $slate-700;
+  cursor: pointer;
+  transition: background 0.1s;
+
+  &:hover {
+    background: $slate-50;
+  }
+}

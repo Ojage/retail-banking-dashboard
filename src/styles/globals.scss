@@ -1,0 +1,19 @@
+@use "reset";
+@use "premium-styles";
+@use "variables" as *;
+@use "mixins" as *;
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: $space-xl;
+
+  @include respond-to(tablet) {
+    padding: $space-m;
+  }
+}

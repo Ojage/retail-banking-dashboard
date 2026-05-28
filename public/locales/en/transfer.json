@@ -1,0 +1,18 @@
+{
+  "title": "Transfer Funds",
+  "subtitle": "Move funds between your accounts instantly.",
+  "form_title": "Transfer Funds",
+  "form_subtitle": "Move funds between your accounts instantly.",
+  "from_account": "From Account",
+  "to_account": "To Account",
+  "amount": "Amount (USD)",
+  "amount_constraint": "Enter an amount greater than $0.00",
+  "select_source": "Select source account",
+  "select_destination": "Select destination account",
+  "btn_transfer": "Transfer",
+  "btn_reset": "Reset",
+  "processing": "Processing...",
+  "success_header": "Transfer successful",
+  "success_content": "Your funds have been transferred successfully.",
+  "error_header": "Transfer failed"
+}

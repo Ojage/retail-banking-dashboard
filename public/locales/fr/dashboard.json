@@ -1,0 +1,9 @@
+{
+  "title": "Tableau de bord",
+  "subtitle": "Votre aperçu financier complet en un coup d'œil.",
+  "net_worth_label": "Patrimoine Net Total",
+  "net_worth_subtitle": "Sur tous les comptes",
+  "accounts_header": "Vos Comptes",
+  "available_balance": "Solde disponible",
+  "currency": "Devise"
+}

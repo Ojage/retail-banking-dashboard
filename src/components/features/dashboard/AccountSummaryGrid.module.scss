@@ -1,0 +1,22 @@
+@use "@cloudscape-design/design-tokens/index" as awsui;
+@use "../../../styles/variables" as *;
+
+.account-card__balance {
+  font-size: $font-size-heading-l;
+  font-weight: 700;
+  color: awsui.$color-text-heading-default;
+  margin-top: $space-xs;
+}
+
+.account-card__masked {
+  color: awsui.$color-text-body-secondary;
+  font-size: $font-size-body-s;
+  font-family: Monaco, Menlo, Consolas, "Courier Prime", monospace;
+  letter-spacing: 0.05em;
+}
+
+.account-card__name {
+  font-size: $font-size-body-m;
+  font-weight: 600;
+  color: awsui.$color-text-heading-default;
+}
