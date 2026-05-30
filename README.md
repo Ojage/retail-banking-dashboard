@@ -2,7 +2,7 @@
 
 A modern retail banking dashboard built with Next.js (App Router), React, Cloudscape Design System, and Recharts.
 
-This project was developed as a **frontend engineering mini-project evaluation** for **PKF Research Center** by [**Salathiel Ojage**](https://github.com/salathiel).
+This project was developed as a **frontend engineering mini-project evaluation** for **PKF Research Center** by [**Salathiel Ojage**](https://github.com/ojage).
 
 ---
 
@@ -218,7 +218,7 @@ src/
 
 ## Project Context
 
-This application was built as a **frontend engineering mini-project** for **PKF Research Center** — part of the PKF International network, a global professional services firm founded in 1969 with 220+ member firms across 150+ countries.
+This application was built as a **frontend engineering mini-project** for **PKFokam Research Center** — a software engineering and technology research center based in Yaoundé, Cameroon, dedicated to advancing innovation and restoring African dignity through technology.
 
 **Developer:** Salathiel Ojage  
 **Role:** Frontend Engineer (React / Next.js)  

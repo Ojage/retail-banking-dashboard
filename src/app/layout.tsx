@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "@cloudscape-design/global-styles/index.css";
 import "../styles/globals.scss";
 import "../styles/fonts.scss";
+import { AuthProvider } from "@/components/shared/AuthProvider";
 import { I18nProvider } from "@/components/shared/I18nProvider";
 import { StoreProvider } from "@/store/StoreProvider";
 
@@ -31,7 +32,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <StoreProvider>
-          <I18nProvider>{children}</I18nProvider>
+          <AuthProvider>
+            <I18nProvider>{children}</I18nProvider>
+          </AuthProvider>
         </StoreProvider>
       </body>
     </html>
