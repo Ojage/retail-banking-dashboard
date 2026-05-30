@@ -287,6 +287,13 @@ export function LandingPage() {
         </Link>
       </section>
 
+      <section className={styles.evaluation}>
+        <div className={styles.evaluationContent}>
+          <h3 className={styles.evaluationTitle}>{t("landing.evaluation.title")}</h3>
+          <p className={styles.evaluationSubtitle}>{t("landing.evaluation.subtitle")}</p>
+        </div>
+      </section>
+
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <Link href="/" className={styles.footerLogo}>
@@ -316,6 +323,9 @@ export function LandingPage() {
         </div>
         <div className={styles.footerLegal}>
           {t("landing.footer.legal", { year: new Date().getFullYear() })}
+        </div>
+        <div className={styles.footerEngineer}>
+          {t("landing.footer.engineer", { name: "Salathiel Ojage", org: "PKF Research Center" })}
         </div>
       </footer>
     </>

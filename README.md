@@ -2,6 +2,8 @@
 
 A modern retail banking dashboard built with Next.js 14, Cloudscape Design System, and Recharts.
 
+This project was developed as a **frontend engineering mini-project evaluation** for **PKF Research Center** by **Salathiel Ojage**.
+
 ## Tech Stack
 
 - **Framework:** Next.js 14 (App Router)

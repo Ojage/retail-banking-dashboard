@@ -1,6 +1,6 @@
 {
   "landing": {
-    "badge": "Assuré par la FDIC",
+    "badge": "PKF Research Center — Évaluation Frontend",
     "hero": {
       "title": "Une banque repensée pour le monde moderne.",
       "subtitle": "RetBankX vous offre des informations en temps réel, des transferts instantanés et une sécurité de niveau professionnel — le tout dans un tableau de bord intuitif.",
@@ -72,7 +72,12 @@
       "privacy": "Politique de confidentialité",
       "terms": "Conditions d'utilisation",
       "contact": "Contact",
-      "legal": "RetBankX est une société de technologie financière, et non une banque. Les services bancaires sont fournis par des banques partenaires, assurées par la FDIC jusqu'à 250 000 $. © {{year}} RetBankX, Inc. Tous droits réservés."
+      "legal": "RetBankX est une société de technologie financière, et non une banque. Les services bancaires sont fournis par des banques partenaires, assurées par la FDIC jusqu'à 250 000 $. © {{year}} RetBankX, Inc. Tous droits réservés.",
+      "engineer": "Réalisé par {{name}} pour {{org}}"
+    },
+    "evaluation": {
+      "title": "Mini-Projet d'Évaluation Frontend",
+      "subtitle": "Ce tableau de bord a été développé dans le cadre d'une évaluation en ingénierie frontend pour PKF Research Center."
     }
   },
   "auth": {
