@@ -77,6 +77,7 @@
   },
   "auth": {
     "logo": "RetBankX",
+    "backToHome": "← Back to Home",
     "login": {
       "title": "Welcome back",
       "subtitle": "Sign in to your account to continue.",

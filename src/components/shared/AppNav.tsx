@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -44,7 +45,13 @@ export function AppNav() {
     <nav className={styles.nav} aria-label={t("nav.mainNavigation")}>
       <div className={styles.inner}>
         <Link href="/dashboard" className={styles.brand}>
-          <div className={styles.brandIcon}>R</div>
+          <Image
+            src="/images/retailBankx_logo.png"
+            alt=""
+            width={22}
+            height={22}
+            className={styles.brandIcon}
+          />
           <span className={styles.brandText}>RetBankX</span>
         </Link>
 

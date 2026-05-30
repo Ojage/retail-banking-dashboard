@@ -15,9 +15,9 @@ export const bankingApi = createApi({
   keepUnusedDataFor: 300,
   endpoints: (builder) => ({
     getAnalyticsData: builder.query<AnalyticsData, void>({
-      queryFn: async () => {
+      queryFn: () => {
         try {
-          const data = await fetchAnalyticsData();
+          const data = fetchAnalyticsData();
           return { data };
         } catch (error) {
           return { error: { status: "CUSTOM_ERROR", error: String(error) } };
@@ -26,9 +26,9 @@ export const bankingApi = createApi({
       providesTags: ["Analytics"],
     }),
     getAccounts: builder.query<Account[], void>({
-      queryFn: async () => {
+      queryFn: () => {
         try {
-          const data = await fetchAccounts();
+          const data = fetchAccounts();
           return { data };
         } catch (error) {
           return { error: { status: "CUSTOM_ERROR", error: String(error) } };
@@ -37,9 +37,9 @@ export const bankingApi = createApi({
       providesTags: ["Account"],
     }),
     getTransactions: builder.query<Transaction[], string>({
-      queryFn: async (accountId) => {
+      queryFn: (accountId) => {
         try {
-          const data = await fetchTransactions(accountId);
+          const data = fetchTransactions(accountId);
           return { data };
         } catch (error) {
           return { error: { status: "CUSTOM_ERROR", error: String(error) } };

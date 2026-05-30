@@ -1,8 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import { useTranslation } from "react-i18next";
+
+import { LanguageSwitcher } from "@/components/shared/LanguageSwitcher";
 
 import styles from "./LandingPage.module.scss";
 
@@ -11,6 +14,25 @@ export function LandingPage() {
 
   return (
     <>
+      <header className={styles.topbar}>
+        <Link href="/" className={styles.topbarBrand}>
+          <Image
+            src="/images/retailBankx_logo.png"
+            alt=""
+            width={22}
+            height={22}
+            className={styles.topbarLogo}
+          />
+          <span className={styles.topbarText}>RetBankX</span>
+        </Link>
+        <div className={styles.topbarRight}>
+          <LanguageSwitcher />
+          <Link href="/auth/login" className={styles.topbarSignin}>
+            {t("landing.hero.signin")}
+          </Link>
+        </div>
+      </header>
+
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.heroBadge}>
@@ -268,7 +290,13 @@ export function LandingPage() {
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <Link href="/" className={styles.footerLogo}>
-            <div className={styles.footerLogoIcon}>R</div>
+            <Image
+              src="/images/retailBankx_logo.png"
+              alt=""
+              width={22}
+              height={22}
+              className={styles.footerLogoIcon}
+            />
             {t("landing.footer.brand")}
           </Link>
           <div className={styles.footerLinks}>

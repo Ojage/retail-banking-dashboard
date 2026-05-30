@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import { useTranslation } from "react-i18next";
@@ -37,6 +38,13 @@ export function PremiumTopNav() {
     <header className={styles.topnav}>
       <div className={styles.inner}>
         <Link href="/dashboard" className={styles.brand}>
+          <Image
+            src="/images/retailBankx_logo.png"
+            alt=""
+            width={20}
+            height={20}
+            className={styles.brandLogo}
+          />
           <span className={styles.brandText}>RetBankX</span>
         </Link>
 

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -15,10 +16,16 @@ import styles from "./AuthForm.module.scss";
 export function SignupForm() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { signup } = useAuth();
+  const { user, loading, signup } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    if (!loading && user) {
+      router.replace("/dashboard");
+    }
+  }, [user, loading, router]);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -57,7 +64,13 @@ export function SignupForm() {
     <div className={styles.wrapper}>
       <div className={styles.card}>
         <div className={styles.logo}>
-          <div className={styles.logoIcon}>R</div>
+          <Image
+            src="/images/retailBankx_logo.png"
+            alt=""
+            width={28}
+            height={28}
+            className={styles.logoIcon}
+          />
           <span className={styles.logoText}>{t("auth.logo")}</span>
         </div>
 

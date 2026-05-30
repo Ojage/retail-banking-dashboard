@@ -522,11 +522,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   Cash: "#78716c",
 };
 
-export async function fetchAnalyticsData(): Promise<AnalyticsData> {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  await delay(600);
-
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+export function fetchAnalyticsData(): AnalyticsData {
   const allTransactions = Object.values(TRANSACTIONS)
     .filter((v): v is Transaction[] => v !== undefined)
     .flat();
@@ -630,13 +626,11 @@ export async function fetchAnalyticsData(): Promise<AnalyticsData> {
   return { expenseCategories, balanceHistory, monthlyTransfers, kpis };
 }
 
-export async function fetchAccounts(): Promise<Account[]> {
-  await delay(300);
+export function fetchAccounts(): Account[] {
   return [...accountsState];
 }
 
-export async function fetchTransactions(accountId: string): Promise<Transaction[]> {
-  await delay(200);
+export function fetchTransactions(accountId: string): Transaction[] {
   return TRANSACTIONS[accountId] ?? [];
 }
 
@@ -678,7 +672,7 @@ export function addTransferTransaction(
 }
 
 export async function submitTransfer(payload: TransferPayload): Promise<TransferResult> {
-  await delay(1500);
+  await delay(200);
   const success = Math.random() > 0.2;
 
   if (!success) {

@@ -9,6 +9,53 @@ $color-bg-dark: #0f1b2d;
 $color-border: #e9ebed;
 $color-success: #00a36c;
 
+// Top bar
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: $color-bg;
+  border-bottom: 1px solid $color-border;
+}
+
+.topbarBrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.topbarLogo {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+}
+
+.topbarText {
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-text-primary;
+  letter-spacing: -0.02em;
+}
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbarSignin {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-brand;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 // Hero
 .hero {
   background: $color-bg-section;
@@ -292,16 +339,9 @@ $color-success: #00a36c;
 }
 
 .footerLogoIcon {
-  width: 28px;
-  height: 28px;
-  background: $color-brand;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 14px;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
 }
 
 .footerLinks {
