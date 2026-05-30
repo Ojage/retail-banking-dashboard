@@ -124,51 +124,55 @@ const SECTOR_ALLOCATION = [
 ];
 
 function PerformanceChart() {
+  const { t } = useTranslation();
   return (
     <div className={styles.chartCard}>
       <div className={styles.chartHeader}>
-        <span className={styles.chartTitle}>Portfolio Performance</span>
-        <span className={styles.chartPeriod}>Last 6 months</span>
+        <span className={styles.chartTitle}>{t("investments.portfolioPerformance")}</span>
+        <span className={styles.chartPeriod}>{t("investments.last6Months")}</span>
       </div>
       <ResponsiveContainer width="100%" height={250}>
         <AreaChart data={PERFORMANCE_DATA}>
           <defs>
             <linearGradient id="perfGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+              <stop offset="5%" stopColor="#0969da" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="#0969da" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#e8ecef" />
           <XAxis
             dataKey="month"
-            tick={{ fill: "#94a3b8", fontSize: 11 }}
+            tick={{ fill: "#656d76", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
           />
           <YAxis
-            tick={{ fill: "#94a3b8", fontSize: 11 }}
+            tick={{ fill: "#656d76", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
             tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`}
           />
           <Tooltip
             contentStyle={{
-              background: "#1e293b",
-              border: "1px solid rgba(255,255,255,0.1)",
+              background: "#ffffff",
+              border: "1px solid #d0d7de",
               borderRadius: 8,
               fontSize: 12,
-              color: "white",
+              color: "#1F2328",
             }}
-            formatter={(value) => [`$${(Number(value) || 0).toLocaleString()}`, "Portfolio Value"]}
+            formatter={(value) => [
+              `$${(Number(value) || 0).toLocaleString()}`,
+              t("investments.portfolioValue"),
+            ]}
           />
           <Area
             type="monotone"
             dataKey="value"
-            stroke="#6366f1"
+            stroke="#0969da"
             strokeWidth={2}
             fill="url(#perfGradient)"
             dot={false}
-            activeDot={{ r: 4, fill: "#6366f1", stroke: "#1e293b", strokeWidth: 2 }}
+            activeDot={{ r: 4, fill: "#0969da", stroke: "#ffffff", strokeWidth: 2 }}
           />
         </AreaChart>
       </ResponsiveContainer>
@@ -177,6 +181,7 @@ function PerformanceChart() {
 }
 
 function SectorDonut() {
+  const { t } = useTranslation();
   const total = SECTOR_ALLOCATION.reduce((s, d) => s + d.value, 0);
 
   const donutStyle = {
@@ -194,14 +199,16 @@ function SectorDonut() {
   return (
     <div className={styles.chartCard}>
       <div className={styles.chartHeader}>
-        <span className={styles.chartTitle}>Sector Allocation</span>
-        <span className={styles.chartPeriod}>{SECTOR_ALLOCATION.length} sectors</span>
+        <span className={styles.chartTitle}>{t("investments.sectorAllocation")}</span>
+        <span className={styles.chartPeriod}>
+          {SECTOR_ALLOCATION.length} {t("investments.sectors")}
+        </span>
       </div>
       <div className={styles.donutWrapper}>
         <div className={styles.donut} style={donutStyle}>
           <div className={styles.donutCenter}>
             <span className={styles.donutValue}>{total.toFixed(0)}%</span>
-            <span className={styles.donutLabel}>Allocated</span>
+            <span className={styles.donutLabel}>{t("investments.allocated")}</span>
           </div>
         </div>
         <div className={styles.donutLegend}>
@@ -219,6 +226,7 @@ function SectorDonut() {
 }
 
 function HoldingsTable() {
+  const { t } = useTranslation();
   const { format } = useCurrencyFormatter();
 
   const marketValue = (item: (typeof HOLDINGS)[0]) => item.shares * item.currentPrice;
@@ -249,21 +257,38 @@ function HoldingsTable() {
       trackBy="id"
       items={HOLDINGS}
       columnDefinitions={[
-        { id: "name", header: "Holding", cell: (item) => item.name, isRowHeader: true },
-        { id: "shares", header: "Shares", cell: (item) => item.shares.toLocaleString() },
-        { id: "avgPrice", header: "Avg Price", cell: (item) => format(item.avgPrice, "USD") },
+        {
+          id: "name",
+          header: t("investments.holding"),
+          cell: (item) => item.name,
+          isRowHeader: true,
+        },
+        {
+          id: "shares",
+          header: t("investments.shares"),
+          cell: (item) => item.shares.toLocaleString(),
+        },
+        {
+          id: "avgPrice",
+          header: t("investments.avgPrice"),
+          cell: (item) => format(item.avgPrice, "USD"),
+        },
         {
           id: "currentPrice",
-          header: "Current Price",
+          header: t("investments.currentPrice"),
           cell: (item) => format(item.currentPrice, "USD"),
         },
-        { id: "marketValue", header: "Market Value", cell: amountCell },
-        { id: "gainLoss", header: "Gain/Loss", cell: gainCell },
-        { id: "allocation", header: "Allocation", cell: (item) => `${item.allocation}%` },
+        { id: "marketValue", header: t("investments.marketValue"), cell: amountCell },
+        { id: "gainLoss", header: t("investments.gainLoss"), cell: gainCell },
+        {
+          id: "allocation",
+          header: t("investments.allocation"),
+          cell: (item) => `${item.allocation}%`,
+        },
       ]}
       header={
         <Header variant="h2" counter={`(${HOLDINGS.length})`}>
-          Holdings
+          {t("investments.holdings")}
         </Header>
       }
     />
@@ -294,19 +319,19 @@ export function InvestmentsPageClient() {
             transition={{ duration: 0.3 }}
           >
             <div className={styles.summaryCard}>
-              <div className={styles.summaryLabel}>Total Portfolio Value</div>
+              <div className={styles.summaryLabel}>{t("investments.totalPortfolioValue")}</div>
               <div className={styles.summaryValue}>
                 {format(PORTFOLIO_SUMMARY.totalValue, "USD")}
               </div>
             </div>
             <div className={styles.summaryCard}>
-              <div className={styles.summaryLabel}>Total Invested</div>
+              <div className={styles.summaryLabel}>{t("investments.totalInvested")}</div>
               <div className={styles.summaryValue}>
                 {format(PORTFOLIO_SUMMARY.totalInvested, "USD")}
               </div>
             </div>
             <div className={styles.summaryCard}>
-              <div className={styles.summaryLabel}>Total Return</div>
+              <div className={styles.summaryLabel}>{t("investments.totalReturn")}</div>
               <div
                 className={`${styles.summaryValue} ${isReturnPositive ? styles.returnPositive : styles.returnNegative}`}
               >
@@ -321,9 +346,11 @@ export function InvestmentsPageClient() {
               </div>
             </div>
             <div className={styles.summaryCard}>
-              <div className={styles.summaryLabel}>Risk Score</div>
+              <div className={styles.summaryLabel}>{t("investments.riskScore")}</div>
               <div className={styles.summaryValue}>{PORTFOLIO_SUMMARY.riskScore}</div>
-              <div className={styles.summaryMeta}>{PORTFOLIO_SUMMARY.diversification} Holdings</div>
+              <div className={styles.summaryMeta}>
+                {PORTFOLIO_SUMMARY.diversification} {t("investments.holdings")}
+              </div>
             </div>
           </motion.div>
 

@@ -99,3 +99,22 @@ export type AnalyticsData = {
   monthlyTransfers: MonthlyTransfer[];
   kpis: KPIData[];
 };
+
+export type NotificationType = "success" | "info" | "warning" | "error";
+
+export type AppNotification = {
+  id: string;
+  type: NotificationType;
+  title: string;
+  message: string;
+  timestamp: string;
+  read: boolean;
+};
+
+export type SearchResult = {
+  id: string;
+  type: "account" | "transaction";
+  label: string;
+  description: string;
+  href: string;
+};

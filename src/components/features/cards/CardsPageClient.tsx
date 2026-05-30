@@ -118,6 +118,7 @@ const RECENT_CARD_TXNS = [
 ];
 
 function CardFront({ card }: { card: (typeof CARDS)[0] }) {
+  const { t } = useTranslation();
   const { format } = useCurrencyFormatter();
   const limitRemaining = card.spendingLimit - card.usedAmount;
   const usedPct = (card.usedAmount / card.spendingLimit) * 100;
@@ -137,7 +138,11 @@ function CardFront({ card }: { card: (typeof CARDS)[0] }) {
           {card.network} {card.type}
         </div>
         <div className={styles.cardStatus}>
-          {frozen ? <Badge color="grey">Frozen</Badge> : <Badge color="green">Active</Badge>}
+          {frozen ? (
+            <Badge color="grey">{t("cards.frozen")}</Badge>
+          ) : (
+            <Badge color="green">{t("cards.active")}</Badge>
+          )}
         </div>
       </div>
 
@@ -160,25 +165,25 @@ function CardFront({ card }: { card: (typeof CARDS)[0] }) {
 
       <div className={styles.cardDetails}>
         <div>
-          <div className={styles.cardDetailLabel}>Card Holder</div>
+          <div className={styles.cardDetailLabel}>{t("cards.cardHolder")}</div>
           <div className={styles.cardDetailValue}>{card.cardholder}</div>
         </div>
         <div>
-          <div className={styles.cardDetailLabel}>Expires</div>
+          <div className={styles.cardDetailLabel}>{t("cards.expires")}</div>
           <div className={styles.cardDetailValue}>{card.expiry}</div>
         </div>
       </div>
 
       <div className={styles.cardActions}>
         <Button variant={frozen ? "primary" : "normal"} onClick={() => setFrozen(!frozen)}>
-          {frozen ? "Unfreeze Card" : "Freeze Card"}
+          {frozen ? t("cards.unfreeze") : t("cards.freeze")}
         </Button>
       </div>
 
       <div className={styles.cardLimit}>
         <div className={styles.cardLimitTop}>
           <span className={styles.cardLimitLabel}>
-            {card.type === "Credit" ? "Credit Limit" : "Daily Limit"}
+            {card.type === "Credit" ? t("cards.creditLimit") : t("cards.dailyLimit")}
           </span>
           <span className={styles.cardLimitUsed}>
             {format(card.usedAmount, "USD")} / {format(card.spendingLimit, "USD")}
@@ -187,7 +192,9 @@ function CardFront({ card }: { card: (typeof CARDS)[0] }) {
         <div className={styles.cardLimitBar}>
           <div className={styles.cardLimitFill} style={{ width: `${Math.min(usedPct, 100)}%` }} />
         </div>
-        <div className={styles.cardLimitRemaining}>{format(limitRemaining, "USD")} remaining</div>
+        <div className={styles.cardLimitRemaining}>
+          {format(limitRemaining, "USD")} {t("cards.remaining")}
+        </div>
       </div>
     </motion.div>
   );
@@ -238,14 +245,23 @@ export function CardsPageClient() {
               trackBy="id"
               items={RECENT_CARD_TXNS}
               columnDefinitions={[
-                { id: "date", header: "Date", cell: (item) => item.date, isRowHeader: true },
-                { id: "merchant", header: "Merchant", cell: (item) => item.merchant },
-                { id: "amount", header: "Amount", cell: amountCell },
-                { id: "status", header: "Status", cell: statusCell },
+                {
+                  id: "date",
+                  header: t("cards.table.date"),
+                  cell: (item) => item.date,
+                  isRowHeader: true,
+                },
+                {
+                  id: "merchant",
+                  header: t("cards.table.merchant"),
+                  cell: (item) => item.merchant,
+                },
+                { id: "amount", header: t("cards.table.amount"), cell: amountCell },
+                { id: "status", header: t("cards.table.status"), cell: statusCell },
               ]}
               header={
                 <Header variant="h2" counter={`(${RECENT_CARD_TXNS.length})`}>
-                  Recent Card Transactions
+                  {t("cards.recentTransactions")}
                 </Header>
               }
             />

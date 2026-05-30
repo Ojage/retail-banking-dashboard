@@ -8,6 +8,10 @@ const nextConfig = {
     "@cloudscape-design/collection-hooks",
     "@cloudscape-design/chat-components",
     "@cloudscape-design/board-components",
+    "rettime",
+    "@mswjs/interceptors",
+    "@open-draft/deferred-promise",
+    "until-async",
   ],
 };
 

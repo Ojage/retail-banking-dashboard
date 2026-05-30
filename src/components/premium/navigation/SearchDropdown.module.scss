@@ -1,0 +1,137 @@
+@use "../../../styles/premium-theme" as *;
+
+.container {
+  position: relative;
+  flex: 1;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  height: 36px;
+  padding: 0 36px 0 36px;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  color: white !important;
+  font-size: 13px !important;
+  outline: none;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.35) !important;
+  }
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: $indigo-500 !important;
+    box-shadow: 0 0 0 2px rgba($indigo-500, 0.15) !important;
+  }
+}
+
+.clearBtn {
+  position: absolute;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+  border: 1px solid $slate-200;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  text-decoration: none;
+  border-bottom: 1px solid $slate-100;
+  transition: background 0.1s;
+
+  &:hover {
+    background: $slate-50;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.resultIcon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: $blue-50;
+  color: $blue-600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.resultLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: $slate-900;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resultDesc {
+  font-size: 11px;
+  color: $slate-500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: $slate-400;
+}

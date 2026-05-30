@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import { useCurrencyFormatter } from "@/hooks/useCurrencyFormatter";
 import type { Account } from "@/types";
@@ -146,6 +147,7 @@ type PremiumAccountCardProps = {
 };
 
 export function PremiumAccountCard({ account, index }: PremiumAccountCardProps) {
+  const { t } = useTranslation();
   const { format } = useCurrencyFormatter();
 
   return (
@@ -171,7 +173,7 @@ export function PremiumAccountCard({ account, index }: PremiumAccountCardProps) 
 
       <div className={styles.cardBottom}>
         <div>
-          <div className={styles.cardBalanceLabel}>Available Balance</div>
+          <div className={styles.cardBalanceLabel}>{t("dashboard.accounts.balance")}</div>
           <div className={styles.cardBalance}>{format(account.balance, account.currency)}</div>
         </div>
         <div className={styles.cardGrowth}>

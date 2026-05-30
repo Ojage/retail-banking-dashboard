@@ -17,27 +17,14 @@
   display: flex;
   align-items: center;
   padding: 0 24px;
-  gap: 24px;
+  gap: 16px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
-}
-
-.brandIcon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, $indigo-500 0%, $indigo-400 100%);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  box-shadow: 0 2px 12px rgba($indigo-500, 0.3);
 }
 
 .brandText {
@@ -48,101 +35,11 @@
   font-family: var(--font-heading);
 }
 
-.brandBadge {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba($indigo-500, 0.15);
-  color: $indigo-300;
-  border: 1px solid rgba($indigo-500, 0.2);
-  margin-left: 2px;
-}
-
-.links {
-  display: flex;
-  gap: 2px;
-}
-
-.link {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 13px;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  transition: all 0.15s ease;
-  letter-spacing: 0.01em;
-
-  &:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.06);
-  }
-}
-
-.search {
-  flex: 1;
-  max-width: 340px;
-  margin: 0 auto;
-
-  input {
-    background: rgba(255, 255, 255, 0.06) !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
-    color: white !important;
-    font-size: 13px !important;
-    height: 36px !important;
-    border-radius: 8px !important;
-
-    &::placeholder {
-      color: rgba(255, 255, 255, 0.35) !important;
-    }
-
-    &:focus {
-      background: rgba(255, 255, 255, 0.1) !important;
-      border-color: $indigo-500 !important;
-      box-shadow: 0 0 0 2px rgba($indigo-500, 0.15) !important;
-    }
-  }
-}
-
 .actions {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
-}
-
-.notificationBtn {
-  position: relative;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  transition: all 0.15s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-  }
-}
-
-.notificationDot {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: $emerald-400;
-  border: 2px solid $navy-800;
 }
 
 .userMenu {

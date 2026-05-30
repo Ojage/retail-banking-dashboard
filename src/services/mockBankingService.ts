@@ -1,4 +1,12 @@
-import type { Account, AnalyticsData, Transaction, TransferPayload, TransferResult } from "@/types";
+import type {
+  Account,
+  AnalyticsData,
+  BalanceHistoryPoint,
+  KPIData,
+  Transaction,
+  TransferPayload,
+  TransferResult,
+} from "@/types";
 
 const delay = (ms: number) => new Promise<void>((res) => setTimeout(res, ms));
 
@@ -47,7 +55,7 @@ const ACCOUNTS: Account[] = [
   },
 ];
 
-const TRANSACTIONS: Record<string, Transaction[]> = {
+const TRANSACTIONS: Record<string, Transaction[] | undefined> = {
   "acc-chk-001": [
     {
       id: "txn-001",
@@ -489,78 +497,184 @@ const TRANSACTIONS: Record<string, Transaction[]> = {
 };
 
 let accountsState: Account[] = [...ACCOUNTS];
+const BASE_BALANCE_HISTORY: BalanceHistoryPoint[] = [
+  { date: "2025-12", balance: 135000 },
+  { date: "2026-01", balance: 138200 },
+  { date: "2026-02", balance: 136800 },
+  { date: "2026-03", balance: 142100 },
+  { date: "2026-04", balance: 145300 },
+];
+
+const CATEGORY_COLORS: Record<string, string> = {
+  Shopping: "#6366f1",
+  Dining: "#8b5cf6",
+  Transport: "#a78bfa",
+  Utilities: "#c4b5fd",
+  Entertainment: "#ddd6fe",
+  Health: "#ede9fe",
+  Groceries: "#10b981",
+  Income: "#06b6d4",
+  Investment: "#f97316",
+  Dividends: "#8b5cf6",
+  Interest: "#06b6d4",
+  Fees: "#dc2626",
+  Transfer: "#64748b",
+  Cash: "#78716c",
+};
 
 export async function fetchAnalyticsData(): Promise<AnalyticsData> {
-  await delay(800);
-  return {
-    expenseCategories: [
-      { name: "Shopping", value: 3200, color: "#6366f1" },
-      { name: "Dining", value: 2100, color: "#8b5cf6" },
-      { name: "Transport", value: 1400, color: "#a78bfa" },
-      { name: "Utilities", value: 980, color: "#c4b5fd" },
-      { name: "Entertainment", value: 750, color: "#ddd6fe" },
-      { name: "Health", value: 520, color: "#ede9fe" },
-    ],
-    balanceHistory: [
-      { date: "2025-12", balance: 135000 },
-      { date: "2026-01", balance: 138200 },
-      { date: "2026-02", balance: 136800 },
-      { date: "2026-03", balance: 142100 },
-      { date: "2026-04", balance: 145300 },
-      { date: "2026-05", balance: 146371 },
-    ],
-    monthlyTransfers: [
-      { month: "Dec", incoming: 8500, outgoing: 7200 },
-      { month: "Jan", incoming: 9200, outgoing: 7800 },
-      { month: "Feb", incoming: 8800, outgoing: 8100 },
-      { month: "Mar", incoming: 10100, outgoing: 7600 },
-      { month: "Apr", incoming: 9600, outgoing: 8300 },
-      { month: "May", incoming: 10450, outgoing: 7900 },
-    ],
-    kpis: [
-      {
-        label: "Monthly Income",
-        value: 10450,
-        prefix: "$",
-        trend: 8.2,
-        trendLabel: "vs last month",
-        format: "currency",
-      },
-      {
-        label: "Monthly Expenses",
-        value: 4520,
-        prefix: "$",
-        trend: -3.1,
-        trendLabel: "vs last month",
-        format: "currency",
-      },
-      {
-        label: "Savings Rate",
-        value: 56.8,
-        suffix: "%",
-        trend: 4.2,
-        trendLabel: "vs last month",
-        format: "percentage",
-      },
-      {
-        label: "Total Transactions",
-        value: 36,
-        trend: 12,
-        trendLabel: "this month",
-        format: "number",
-      },
-    ],
-  };
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  await delay(600);
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const allTransactions = Object.values(TRANSACTIONS)
+    .filter((v): v is Transaction[] => v !== undefined)
+    .flat();
+  const now = new Date();
+  const currentMonth = now.toISOString().slice(0, 7);
+
+  const totalBalance = accountsState.reduce((s, a) => s + a.balance, 0);
+
+  const expenseMap: Record<string, number> = {};
+  let totalIncome = 0;
+  let totalExpenses = 0;
+  let currentMonthTxns = 0;
+
+  allTransactions.forEach((txn) => {
+    const txnMonth = txn.date.slice(0, 7);
+    if (txn.type === "Debit" && txn.category !== "Transfer") {
+      expenseMap[txn.category] = (expenseMap[txn.category] || 0) + txn.amount;
+      if (txnMonth === currentMonth) {
+        totalExpenses += txn.amount;
+      }
+    }
+    if (txn.type === "Credit" && txn.category !== "Transfer") {
+      if (txnMonth === currentMonth) {
+        totalIncome += txn.amount;
+      }
+    }
+    if (txnMonth === currentMonth) {
+      currentMonthTxns++;
+    }
+  });
+
+  const expenseCategories = Object.entries(expenseMap)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 6)
+    .map(([name, value]) => ({
+      name,
+      value: Math.round(value),
+      color: CATEGORY_COLORS[name] || "#94a3b8",
+    }));
+
+  const balanceHistory: BalanceHistoryPoint[] = [
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    ...BASE_BALANCE_HISTORY,
+    { date: currentMonth, balance: totalBalance },
+  ];
+
+  const transferMap: Record<string, { incoming: number; outgoing: number }> = {};
+  allTransactions.forEach((txn) => {
+    const d = new Date(txn.date);
+    const monthLabel = d.toLocaleString("en-US", { month: "short" });
+    if (!(monthLabel in transferMap)) {
+      transferMap[monthLabel] = { incoming: 0, outgoing: 0 };
+    }
+    if (txn.category === "Transfer" && txn.type === "Credit") {
+      transferMap[monthLabel].incoming += txn.amount;
+    } else if (txn.category === "Transfer") {
+      transferMap[monthLabel].outgoing += txn.amount;
+    }
+  });
+  const monthlyTransfers = Object.entries(transferMap).map(([month, data]) => ({
+    month,
+    ...data,
+  }));
+
+  const kpis: KPIData[] = [
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    {
+      label: "Monthly Income",
+      value: Math.round(totalIncome),
+      trend: 8.2,
+      trendLabel: "vs last month",
+      format: "currency",
+    },
+    {
+      label: "Monthly Expenses",
+      value: Math.round(totalExpenses),
+      trend: -3.1,
+      trendLabel: "vs last month",
+      format: "currency",
+    },
+    {
+      label: "Savings Rate",
+      value:
+        totalIncome > 0
+          ? Math.round(((totalIncome - totalExpenses) / totalIncome) * 100 * 10) / 10
+          : 0,
+      trend: 4.2,
+      trendLabel: "vs last month",
+      format: "percentage",
+    },
+    {
+      label: "Total Transactions",
+      value: currentMonthTxns,
+      trend: currentMonthTxns > 0 ? 12 : 0,
+      trendLabel: "this month",
+      format: "number",
+    },
+  ];
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  return { expenseCategories, balanceHistory, monthlyTransfers, kpis };
 }
 
 export async function fetchAccounts(): Promise<Account[]> {
-  await delay(600);
+  await delay(300);
   return [...accountsState];
 }
 
 export async function fetchTransactions(accountId: string): Promise<Transaction[]> {
-  await delay(400);
+  await delay(200);
   return TRANSACTIONS[accountId] ?? [];
+}
+
+export function addTransferTransaction(
+  fromAccountId: string,
+  toAccountId: string,
+  amount: number
+): void {
+  const now = new Date().toISOString();
+  const id = `txn-transfer-${Date.now()}`;
+
+  const debitTx: Transaction = {
+    id: `${id}-debit`,
+    accountId: fromAccountId,
+    date: now,
+    description: `Transfer to account`,
+    merchant: "RetBankX",
+    amount,
+    type: "Debit",
+    category: "Transfer",
+    status: "completed",
+    reference: `REF-${id}-debit`,
+  };
+  const creditTx: Transaction = {
+    id: `${id}-credit`,
+    accountId: toAccountId,
+    date: now,
+    description: `Transfer from account`,
+    merchant: "RetBankX",
+    amount,
+    type: "Credit",
+    category: "Transfer",
+    status: "completed",
+    reference: `REF-${id}-credit`,
+  };
+
+  TRANSACTIONS[fromAccountId] = [debitTx, ...(TRANSACTIONS[fromAccountId] ?? [])];
+  TRANSACTIONS[toAccountId] = [creditTx, ...(TRANSACTIONS[toAccountId] ?? [])];
 }
 
 export async function submitTransfer(payload: TransferPayload): Promise<TransferResult> {
@@ -592,5 +706,8 @@ export async function submitTransfer(payload: TransferPayload): Promise<Transfer
   });
 
   accountsState = updated;
+
+  addTransferTransaction(payload.fromAccountId, payload.toAccountId, payload.amount);
+
   return { success: true, message: "Transfer completed successfully.", updatedAccounts: updated };
 }

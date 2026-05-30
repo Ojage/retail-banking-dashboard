@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   PieChart,
   Pie,
@@ -22,17 +23,26 @@ import { useGetAnalyticsDataQuery } from "@/store/api/bankingApi";
 
 import styles from "./AnalyticsWidgets.module.scss";
 
+const tooltipStyle = {
+  background: "#ffffff",
+  border: "1px solid #d0d7de",
+  borderRadius: 8,
+  fontSize: 12,
+  color: "#1F2328",
+};
+
 function ExpenseDonutChart({
   data,
 }: {
   data: Array<{ name: string; value: number; color: string }>;
 }) {
+  const { t } = useTranslation();
   const total = data.reduce((s, d) => s + d.value, 0);
 
   return (
     <div className={styles.chartCard}>
       <div className={styles.chartHeader}>
-        <span className={styles.chartTitle}>Expense Breakdown</span>
+        <span className={styles.chartTitle}>{t("analytics.expenseBreakdown")}</span>
         <span className={styles.chartTotal}>${total.toLocaleString()}</span>
       </div>
       <div className={styles.donutContainer}>
@@ -53,14 +63,11 @@ function ExpenseDonutChart({
               ))}
             </Pie>
             <Tooltip
-              contentStyle={{
-                background: "#1e293b",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: 8,
-                fontSize: 12,
-                color: "white",
-              }}
-              formatter={(value) => [`$${(Number(value) || 0).toLocaleString()}`, "Amount"]}
+              contentStyle={tooltipStyle}
+              formatter={(value) => [
+                `$${(Number(value) || 0).toLocaleString()}`,
+                t("analytics.amount"),
+              ]}
             />
           </PieChart>
         </ResponsiveContainer>
@@ -79,51 +86,49 @@ function ExpenseDonutChart({
 }
 
 function BalanceAreaChart({ data }: { data: Array<{ date: string; balance: number }> }) {
+  const { t } = useTranslation();
   return (
     <div className={styles.chartCard}>
       <div className={styles.chartHeader}>
-        <span className={styles.chartTitle}>Balance Growth</span>
-        <span className={styles.chartPeriod}>Last 6 months</span>
+        <span className={styles.chartTitle}>{t("analytics.balanceGrowth")}</span>
+        <span className={styles.chartPeriod}>{t("analytics.last6Months")}</span>
       </div>
       <ResponsiveContainer width="100%" height={200}>
         <AreaChart data={data}>
           <defs>
             <linearGradient id="balanceGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+              <stop offset="5%" stopColor="#0969da" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="#0969da" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#e8ecef" />
           <XAxis
             dataKey="date"
-            tick={{ fill: "#94a3b8", fontSize: 11 }}
+            tick={{ fill: "#656d76", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
           />
           <YAxis
-            tick={{ fill: "#94a3b8", fontSize: 11 }}
+            tick={{ fill: "#656d76", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
             tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`}
           />
           <Tooltip
-            contentStyle={{
-              background: "#1e293b",
-              border: "1px solid rgba(255,255,255,0.1)",
-              borderRadius: 8,
-              fontSize: 12,
-              color: "white",
-            }}
-            formatter={(value) => [`$${(Number(value) || 0).toLocaleString()}`, "Balance"]}
+            contentStyle={tooltipStyle}
+            formatter={(value) => [
+              `$${(Number(value) || 0).toLocaleString()}`,
+              t("analytics.balance"),
+            ]}
           />
           <Area
             type="monotone"
             dataKey="balance"
-            stroke="#6366f1"
+            stroke="#0969da"
             strokeWidth={2}
             fill="url(#balanceGradient)"
             dot={false}
-            activeDot={{ r: 4, fill: "#6366f1", stroke: "#1e293b", strokeWidth: 2 }}
+            activeDot={{ r: 4, fill: "#0969da", stroke: "#ffffff", strokeWidth: 2 }}
           />
         </AreaChart>
       </ResponsiveContainer>
@@ -136,52 +141,45 @@ function TransferBarChart({
 }: {
   data: Array<{ month: string; incoming: number; outgoing: number }>;
 }) {
+  const { t } = useTranslation();
   return (
     <div className={styles.chartCard}>
       <div className={styles.chartHeader}>
-        <span className={styles.chartTitle}>Monthly Transfers</span>
-        <span className={styles.chartPeriod}>Incoming vs Outgoing</span>
+        <span className={styles.chartTitle}>{t("analytics.monthlyTransfers")}</span>
+        <span className={styles.chartPeriod}>{t("analytics.incomingVsOutgoing")}</span>
       </div>
       <ResponsiveContainer width="100%" height={200}>
         <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#e8ecef" />
           <XAxis
             dataKey="month"
-            tick={{ fill: "#94a3b8", fontSize: 11 }}
+            tick={{ fill: "#656d76", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
           />
           <YAxis
-            tick={{ fill: "#94a3b8", fontSize: 11 }}
+            tick={{ fill: "#656d76", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
             tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`}
           />
-          <Tooltip
-            contentStyle={{
-              background: "#1e293b",
-              border: "1px solid rgba(255,255,255,0.1)",
-              borderRadius: 8,
-              fontSize: 12,
-              color: "white",
-            }}
-          />
+          <Tooltip contentStyle={tooltipStyle} />
           <Legend
-            wrapperStyle={{ fontSize: 11, color: "#94a3b8" }}
+            wrapperStyle={{ fontSize: 11, color: "#656d76" }}
             iconType="circle"
             iconSize={8}
           />
           <Bar
             dataKey="incoming"
-            name="Incoming"
-            fill="#10b981"
+            name={t("analytics.incoming")}
+            fill="#1a7f37"
             radius={[4, 4, 0, 0]}
             maxBarSize={32}
           />
           <Bar
             dataKey="outgoing"
-            name="Outgoing"
-            fill="#6366f1"
+            name={t("analytics.outgoing")}
+            fill="#0969da"
             radius={[4, 4, 0, 0]}
             maxBarSize={32}
           />

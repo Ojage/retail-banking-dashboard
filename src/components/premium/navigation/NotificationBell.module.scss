@@ -1,0 +1,212 @@
+@use "../../../styles/premium-theme" as *;
+
+.container {
+  position: relative;
+}
+
+.bellBtn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: $emerald-400;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  border: 2px solid $navy-800;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 360px;
+  max-height: 480px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+  border: 1px solid $slate-200;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid $slate-200;
+}
+
+.dropdownTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: $slate-900;
+}
+
+.dropdownActions {
+  display: flex;
+  gap: 8px;
+}
+
+.dropdownAction {
+  background: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: $indigo-500;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+
+  &:hover {
+    background: $slate-50;
+    color: $indigo-600;
+  }
+}
+
+.notifList {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 380px;
+}
+
+.empty {
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: $slate-400;
+}
+
+.notifItem {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid $slate-100;
+  transition: background 0.1s;
+  position: relative;
+
+  &:hover {
+    background: $slate-50;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.unread {
+  background: $blue-50;
+
+  &:hover {
+    background: $blue-100;
+  }
+}
+
+.notifIcon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.success {
+    background: rgba($emerald-500, 0.1);
+    color: $emerald-600;
+  }
+
+  &.info {
+    background: rgba($blue-500, 0.1);
+    color: $blue-600;
+  }
+
+  &.warning {
+    background: rgba($amber-500, 0.1);
+    color: $amber-600;
+  }
+
+  &.error {
+    background: rgba($red-500, 0.1);
+    color: $red-600;
+  }
+}
+
+.notifContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.notifTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: $slate-900;
+  margin-bottom: 2px;
+}
+
+.notifMessage {
+  font-size: 12px;
+  color: $slate-500;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.notifTime {
+  font-size: 11px;
+  color: $slate-400;
+}
+
+.notifDismiss {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: $slate-300;
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.1s;
+
+  .notifItem:hover & {
+    opacity: 1;
+  }
+
+  &:hover {
+    color: $slate-500;
+    background: $slate-100;
+  }
+}

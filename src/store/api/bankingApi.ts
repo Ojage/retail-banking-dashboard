@@ -11,7 +11,7 @@ import type { Account, AnalyticsData, Transaction, TransferPayload, TransferResu
 export const bankingApi = createApi({
   reducerPath: "bankingApi",
   baseQuery: fakeBaseQuery(),
-  tagTypes: ["Account", "Transaction"],
+  tagTypes: ["Account", "Transaction", "Analytics"],
   keepUnusedDataFor: 300,
   endpoints: (builder) => ({
     getAnalyticsData: builder.query<AnalyticsData, void>({
@@ -23,6 +23,7 @@ export const bankingApi = createApi({
           return { error: { status: "CUSTOM_ERROR", error: String(error) } };
         }
       },
+      providesTags: ["Analytics"],
     }),
     getAccounts: builder.query<Account[], void>({
       queryFn: async () => {
@@ -55,7 +56,7 @@ export const bankingApi = createApi({
           return { error: { status: "CUSTOM_ERROR", error: String(error) } };
         }
       },
-      invalidatesTags: ["Account"],
+      invalidatesTags: ["Account", "Analytics"],
     }),
   }),
 });

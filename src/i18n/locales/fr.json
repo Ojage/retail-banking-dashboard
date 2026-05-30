@@ -116,17 +116,37 @@
     "dashboard": "Tableau de bord",
     "transactions": "Transactions",
     "transfer": "Virement",
+    "accounts": "Comptes",
+    "analytics": "Analytique",
+    "investments": "Investissements",
+    "cards": "Cartes",
+    "settings": "Paramètres",
     "signOut": "Déconnexion",
     "userMenuLabel": "Menu utilisateur",
     "showUserMenu": "Afficher le menu",
-    "closeUserMenu": "Fermer le menu"
+    "closeUserMenu": "Fermer le menu",
+    "sections": {
+      "main": "Principal",
+      "banking": "Banque",
+      "services": "Services"
+    },
+    "enterprise": "Entreprise",
+    "search": "Rechercher comptes, transactions...",
+    "searchAria": "Rechercher",
+    "notifications": "Notifications",
+    "accountHolder": "Titulaire du compte",
+    "profileSettings": "Paramètres du profil",
+    "accountPreferences": "Préférences du compte",
+    "fdicInsured": "Assuré par la FDIC",
+    "fdicCoverage": "Jusqu'à 250 000 $"
   },
   "dashboard": {
     "title": "Tableau de bord",
     "description": "Votre aperçu financier complet en un coup d'œil.",
     "netWorth": {
       "label": "Patrimoine net",
-      "subtitle": "Tous comptes confondus"
+      "subtitle": "Tous comptes confondus",
+      "period": "vs le mois dernier"
     },
     "accounts": {
       "title": "Vos comptes",
@@ -158,7 +178,9 @@
         "title": "Aucune transaction",
         "desc": "Aucune transaction ne correspond au filtre actuel."
       }
-    }
+    },
+    "recentActivity": "Activité récente",
+    "transactionCount": "{{count}} transactions"
   },
   "transfer": {
     "title": "Virement",
@@ -191,23 +213,99 @@
   },
   "accounts": {
     "title": "Comptes",
-    "description": "Consultez et gérez tous vos comptes bancaires en un seul endroit."
+    "description": "Consultez et gérez tous vos comptes bancaires en un seul endroit.",
+    "table": {
+      "account": "Compte",
+      "type": "Type",
+      "accountNumber": "Numéro de compte",
+      "sortCode": "Code guichet",
+      "balance": "Solde",
+      "status": "Statut",
+      "accountDetails": "Détails du compte"
+    }
   },
   "analytics": {
     "title": "Analytique",
-    "description": "Analyse approfondie de vos dépenses, revenus et tendances financières."
+    "description": "Analyse approfondie de vos dépenses, revenus et tendances financières.",
+    "expenseBreakdown": "Répartition des dépenses",
+    "balanceGrowth": "Croissance du solde",
+    "last6Months": "6 derniers mois",
+    "monthlyTransfers": "Virements mensuels",
+    "incomingVsOutgoing": "Entrants vs Sortants",
+    "incoming": "Entrant",
+    "outgoing": "Sortant",
+    "amount": "Montant",
+    "balance": "Solde"
   },
   "investments": {
     "title": "Investissements",
-    "description": "Suivez la performance et les avoirs de votre portefeuille d'investissement."
+    "description": "Suivez la performance et les avoirs de votre portefeuille d'investissement.",
+    "totalPortfolioValue": "Valeur totale du portefeuille",
+    "totalInvested": "Total investi",
+    "totalReturn": "Rendement total",
+    "riskScore": "Score de risque",
+    "holdings": "Titres",
+    "holding": "Titre",
+    "shares": "Parts",
+    "avgPrice": "Prix moyen",
+    "currentPrice": "Prix actuel",
+    "marketValue": "Valeur marchande",
+    "gainLoss": "Gain/Perte",
+    "allocation": "Allocation",
+    "portfolioPerformance": "Performance du portefeuille",
+    "last6Months": "6 derniers mois",
+    "sectorAllocation": "Allocation sectorielle",
+    "sectors": "secteurs",
+    "allocated": "Alloué",
+    "portfolioValue": "Valeur du portefeuille"
   },
   "cards": {
     "title": "Cartes",
-    "description": "Gérez vos cartes de débit et de crédit en toute sécurité."
+    "description": "Gérez vos cartes de débit et de crédit en toute sécurité.",
+    "cardHolder": "Titulaire de la carte",
+    "expires": "Expire le",
+    "freeze": "Geler la carte",
+    "unfreeze": "Dégeler la carte",
+    "creditLimit": "Limite de crédit",
+    "dailyLimit": "Limite quotidienne",
+    "remaining": "restant",
+    "frozen": "Gelée",
+    "active": "Active",
+    "recentTransactions": "Transactions récentes",
+    "table": {
+      "date": "Date",
+      "merchant": "Marchand",
+      "amount": "Montant",
+      "status": "Statut"
+    }
   },
   "settings": {
     "title": "Paramètres",
-    "description": "Gérez votre profil, vos préférences et vos paramètres de sécurité."
+    "description": "Gérez votre profil, vos préférences et vos paramètres de sécurité.",
+    "profileInformation": "Informations du profil",
+    "preferences": "Préférences",
+    "security": "Sécurité",
+    "dangerZone": "Zone dangereuse",
+    "fullName": "Nom complet",
+    "emailAddress": "Adresse e-mail",
+    "memberSince": "Membre depuis",
+    "accountStatus": "Statut du compte",
+    "verified": "Vérifié",
+    "language": "Langue",
+    "languageDesc": "Choisissez votre langue préférée pour l'interface",
+    "currencyDisplay": "Affichage de la devise",
+    "currencyDesc": "Tous les montants sont affichés en USD",
+    "password": "Mot de passe",
+    "passwordDesc": "Dernière modification il y a 3 mois",
+    "changePassword": "Changer le mot de passe",
+    "twoFactor": "Authentification à deux facteurs",
+    "twoFactorDesc": "Ajoutez une couche de sécurité supplémentaire à votre compte",
+    "enable2FA": "Activer la 2FA",
+    "activeSessions": "Sessions actives",
+    "sessionsDesc": "Vous êtes connecté sur cet appareil",
+    "activeSessionCount": "1 session active",
+    "closeAccount": "Fermer le compte",
+    "closeAccountDesc": "Fermez définitivement votre compte et supprimez toutes les données associées. Cette action est irréversible."
   },
   "language": {
     "ariaLabel": "Changer de langue",

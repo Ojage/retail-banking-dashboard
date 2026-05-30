@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import StatusIndicator from "@/components/ui/StatusIndicator";
 import { useAccounts } from "@/hooks/useAccounts";
@@ -53,6 +54,7 @@ const MERCHANT_LOGOS: Record<string, string> = {
 };
 
 function TransactionRow({ transaction, index }: { transaction: Transaction; index: number }) {
+  const { i18n } = useTranslation();
   const { format } = useCurrencyFormatter();
   const isCredit = transaction.type === "Credit";
   const logo = MERCHANT_LOGOS[transaction.merchant] || transaction.merchant.charAt(0);
@@ -77,7 +79,7 @@ function TransactionRow({ transaction, index }: { transaction: Transaction; inde
             <span className={styles.txnCategory}>{transaction.category}</span>
             <span className={styles.txnDot}>·</span>
             <span className={styles.txnDate}>
-              {new Date(transaction.date).toLocaleDateString("en-US", {
+              {new Date(transaction.date).toLocaleDateString(i18n.language, {
                 month: "short",
                 day: "numeric",
               })}
@@ -109,9 +111,10 @@ function TransactionRow({ transaction, index }: { transaction: Transaction; inde
 }
 
 function TransactionSkeleton() {
+  const { t } = useTranslation();
   return (
     <div className={styles.feed}>
-      <div className={styles.feedHeader}>Recent Activity</div>
+      <div className={styles.feedHeader}>{t("transactions.recentActivity")}</div>
       <div className={styles.txnList}>
         {[1, 2, 3, 4, 5].map((i) => (
           <div key={i} className={styles.txnSkeleton}>
@@ -147,6 +150,7 @@ function TransactionSkeleton() {
 }
 
 export function TransactionFeed() {
+  const { t } = useTranslation();
   const { accounts } = useAccounts();
   const firstAccountId = accounts[0]?.id ?? "";
   const { transactions, isLoading } = useTransactions(firstAccountId);
@@ -163,8 +167,10 @@ export function TransactionFeed() {
       transition={{ duration: 0.4, delay: 0.3 }}
     >
       <div className={styles.feedHeader}>
-        <span>Recent Activity</span>
-        <span className={styles.feedCount}>{transactions.length} transactions</span>
+        <span>{t("transactions.recentActivity")}</span>
+        <span className={styles.feedCount}>
+          {t("transactions.transactionCount", { count: transactions.length })}
+        </span>
       </div>
       <div className={styles.txnList}>
         {transactions.slice(0, 8).map((txn, idx) => (

@@ -4,21 +4,18 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import Link from "next/link";
 
-import Input from "@/components/ui/Input";
+import { useTranslation } from "react-i18next";
+
 import { useAuth } from "@/hooks/useAuth";
 
+import { NotificationBell } from "./NotificationBell";
 import styles from "./PremiumTopNav.module.scss";
-
-const NAV_ITEMS = [
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/dashboard/transactions", label: "Transactions" },
-  { href: "/dashboard/transfer", label: "Transfers" },
-];
+import { SearchDropdown } from "./SearchDropdown";
 
 export function PremiumTopNav() {
+  const { t } = useTranslation();
   const { user, loading, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
   const menuRef = useRef<HTMLDivElement>(null);
 
   const handleLogout = useCallback(async () => {
@@ -40,60 +37,13 @@ export function PremiumTopNav() {
     <header className={styles.topnav}>
       <div className={styles.inner}>
         <Link href="/dashboard" className={styles.brand}>
-          <div className={styles.brandIcon}>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="2" y="5" width="20" height="14" rx="2" />
-              <line x1="2" y1="10" x2="22" y2="10" />
-            </svg>
-          </div>
           <span className={styles.brandText}>RetBankX</span>
-          <span className={styles.brandBadge}>Enterprise</span>
         </Link>
 
-        <nav className={styles.links}>
-          {NAV_ITEMS.map((item) => (
-            <Link key={item.href} href={item.href} className={styles.link}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className={styles.search}>
-          <Input
-            type="search"
-            placeholder="Search accounts, transactions..."
-            ariaLabel="Search"
-            value={searchValue}
-            onChange={({ detail }) => setSearchValue(detail.value)}
-          />
-        </div>
+        <SearchDropdown />
 
         <div className={styles.actions}>
-          <button className={styles.notificationBtn} aria-label="Notifications">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-            <span className={styles.notificationDot} />
-          </button>
+          <NotificationBell />
 
           {!loading && user && (
             <div className={styles.userMenu} ref={menuRef}>
@@ -106,7 +56,7 @@ export function PremiumTopNav() {
                 <div className={styles.avatar}>{user.name.charAt(0).toUpperCase()}</div>
                 <div className={styles.userInfo}>
                   <span className={styles.userName}>{user.name}</span>
-                  <span className={styles.userRole}>Account Holder</span>
+                  <span className={styles.userRole}>{t("nav.accountHolder")}</span>
                 </div>
                 <svg
                   className={`${styles.chevron} ${menuOpen ? styles.chevronOpen : ""}`}
@@ -134,14 +84,14 @@ export function PremiumTopNav() {
                   </div>
                   <div className={styles.dropdownDivider} />
                   <button className={styles.dropdownItem} role="menuitem">
-                    Profile Settings
+                    {t("nav.profileSettings")}
                   </button>
                   <button className={styles.dropdownItem} role="menuitem">
-                    Account Preferences
+                    {t("nav.accountPreferences")}
                   </button>
                   <div className={styles.dropdownDivider} />
                   <button className={styles.dropdownItem} onClick={handleLogout} role="menuitem">
-                    Sign Out
+                    {t("nav.signOut")}
                   </button>
                 </div>
               )}

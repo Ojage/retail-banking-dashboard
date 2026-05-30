@@ -3,33 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import styles from "./PremiumSideNav.module.scss";
+import { useTranslation } from "react-i18next";
 
-const SECTIONS = [
-  {
-    label: "Main",
-    items: [
-      { href: "/dashboard", label: "Dashboard", icon: "grid" },
-      { href: "/dashboard/accounts", label: "Accounts", icon: "bank" },
-      { href: "/dashboard/transactions", label: "Transactions", icon: "arrows" },
-    ],
-  },
-  {
-    label: "Banking",
-    items: [
-      { href: "/dashboard/transfer", label: "Transfers", icon: "send" },
-      { href: "/dashboard/analytics", label: "Analytics", icon: "chart" },
-      { href: "/dashboard/investments", label: "Investments", icon: "trending" },
-    ],
-  },
-  {
-    label: "Services",
-    items: [
-      { href: "/dashboard/cards", label: "Cards", icon: "credit" },
-      { href: "/dashboard/settings", label: "Settings", icon: "settings" },
-    ],
-  },
-];
+import styles from "./PremiumSideNav.module.scss";
 
 const ICONS: Record<string, React.ReactNode> = {
   grid: (
@@ -164,7 +140,34 @@ const ICONS: Record<string, React.ReactNode> = {
 };
 
 export function PremiumSideNav() {
+  const { t } = useTranslation();
   const pathname = usePathname();
+
+  const SECTIONS = [
+    {
+      label: t("nav.sections.main"),
+      items: [
+        { href: "/dashboard", label: t("nav.dashboard"), icon: "grid" },
+        { href: "/dashboard/accounts", label: t("nav.accounts"), icon: "bank" },
+        { href: "/dashboard/transactions", label: t("nav.transactions"), icon: "arrows" },
+      ],
+    },
+    {
+      label: t("nav.sections.banking"),
+      items: [
+        { href: "/dashboard/transfer", label: t("nav.transfer"), icon: "send" },
+        { href: "/dashboard/analytics", label: t("nav.analytics"), icon: "chart" },
+        { href: "/dashboard/investments", label: t("nav.investments"), icon: "trending" },
+      ],
+    },
+    {
+      label: t("nav.sections.services"),
+      items: [
+        { href: "/dashboard/cards", label: t("nav.cards"), icon: "credit" },
+        { href: "/dashboard/settings", label: t("nav.settings"), icon: "settings" },
+      ],
+    },
+  ];
 
   return (
     <aside className={styles.sidenav}>
@@ -209,8 +212,8 @@ export function PremiumSideNav() {
             </svg>
           </div>
           <div className={styles.footerText}>
-            <div className={styles.footerTitle}>FDIC Insured</div>
-            <div className={styles.footerSub}>Up to $250,000</div>
+            <div className={styles.footerTitle}>{t("nav.fdicInsured")}</div>
+            <div className={styles.footerSub}>{t("nav.fdicCoverage")}</div>
           </div>
         </div>
       </div>

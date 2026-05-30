@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import { useAccounts } from "@/hooks/useAccounts";
 import { useCurrencyFormatter } from "@/hooks/useCurrencyFormatter";
@@ -83,6 +84,7 @@ function Sparkline({ data, color }: { data: number[]; color: string }) {
 }
 
 export function HeroWealthCard() {
+  const { t } = useTranslation();
   const { accounts, totalNetWorth, isLoading } = useAccounts();
   const { format } = useCurrencyFormatter();
 
@@ -120,7 +122,7 @@ export function HeroWealthCard() {
       <div className={styles.heroBg} />
       <div className={styles.heroContent}>
         <div className={styles.heroMain}>
-          <div className={styles.heroLabel}>Total Net Worth</div>
+          <div className={styles.heroLabel}>{t("dashboard.netWorth.label")}</div>
           <div className={styles.heroAmount}>
             <AnimatedNumber value={totalNetWorth} format={(v) => format(v, "USD")} />
           </div>
@@ -146,7 +148,7 @@ export function HeroWealthCard() {
               </svg>
               {monthlyGrowth.toFixed(1)}%
             </span>
-            <span className={styles.heroPeriod}>vs last month</span>
+            <span className={styles.heroPeriod}>{t("dashboard.netWorth.period")}</span>
           </div>
         </div>
         <div className={styles.heroVisual}>

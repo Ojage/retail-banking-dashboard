@@ -18,6 +18,7 @@ import type { Account } from "@/types";
 import styles from "./AccountsPage.module.scss";
 
 function AccountsTable({ accounts }: { accounts: Account[] }) {
+  const { t } = useTranslation();
   const { format } = useCurrencyFormatter();
 
   const statusCell = (item: Account) => (
@@ -36,20 +37,29 @@ function AccountsTable({ accounts }: { accounts: Account[] }) {
       trackBy="id"
       items={accounts}
       columnDefinitions={[
-        { id: "name", header: "Account", cell: (item) => item.name, isRowHeader: true },
+        {
+          id: "name",
+          header: t("accounts.table.account"),
+          cell: (item) => item.name,
+          isRowHeader: true,
+        },
         {
           id: "type",
-          header: "Type",
+          header: t("accounts.table.type"),
           cell: (item) => item.type.charAt(0).toUpperCase() + item.type.slice(1),
         },
-        { id: "number", header: "Account Number", cell: (item) => item.accountNumber },
-        { id: "sortCode", header: "Sort Code", cell: (item) => item.sortCode },
-        { id: "balance", header: "Balance", cell: amountCell },
-        { id: "status", header: "Status", cell: statusCell },
+        {
+          id: "number",
+          header: t("accounts.table.accountNumber"),
+          cell: (item) => item.accountNumber,
+        },
+        { id: "sortCode", header: t("accounts.table.sortCode"), cell: (item) => item.sortCode },
+        { id: "balance", header: t("accounts.table.balance"), cell: amountCell },
+        { id: "status", header: t("accounts.table.status"), cell: statusCell },
       ]}
       header={
         <Header variant="h2" counter={`(${accounts.length})`}>
-          Account Details
+          {t("accounts.table.accountDetails")}
         </Header>
       }
     />

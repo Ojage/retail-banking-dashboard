@@ -2,22 +2,22 @@
 
 .widgetsGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
 .chartCol1 {
-  grid-column: 1 / -1;
+  grid-column: 1;
 }
 
 .chartCol2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
 .chartCol3 {
-  grid-column: 1 / -1;
+  grid-column: 1;
 }
 
 .chartCard {
@@ -97,7 +97,7 @@
 
 .kpiGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
@@ -170,27 +170,21 @@
 
 .kpiSkeletonGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
 @media (max-width: 1200px) {
   .kpiGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
   .kpiSkeletonGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .chartCol2 {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .widgetsGrid {
-    grid-template-columns: 1fr;
-  }
   .kpiGrid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }

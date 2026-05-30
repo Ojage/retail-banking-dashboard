@@ -116,17 +116,37 @@
     "dashboard": "Dashboard",
     "transactions": "Transactions",
     "transfer": "Transfer",
+    "accounts": "Accounts",
+    "analytics": "Analytics",
+    "investments": "Investments",
+    "cards": "Cards",
+    "settings": "Settings",
     "signOut": "Sign out",
     "userMenuLabel": "User menu",
     "showUserMenu": "Show user menu",
-    "closeUserMenu": "Close user menu"
+    "closeUserMenu": "Close user menu",
+    "sections": {
+      "main": "Main",
+      "banking": "Banking",
+      "services": "Services"
+    },
+    "enterprise": "Enterprise",
+    "search": "Search accounts, transactions...",
+    "searchAria": "Search",
+    "notifications": "Notifications",
+    "accountHolder": "Account Holder",
+    "profileSettings": "Profile Settings",
+    "accountPreferences": "Account Preferences",
+    "fdicInsured": "FDIC Insured",
+    "fdicCoverage": "Up to $250,000"
   },
   "dashboard": {
     "title": "Dashboard",
     "description": "Your complete financial overview at a glance.",
     "netWorth": {
       "label": "Total Net Worth",
-      "subtitle": "Across all accounts"
+      "subtitle": "Across all accounts",
+      "period": "vs last month"
     },
     "accounts": {
       "title": "Your Accounts",
@@ -158,7 +178,9 @@
         "title": "No transactions",
         "desc": "No transactions match the current filter."
       }
-    }
+    },
+    "recentActivity": "Recent Activity",
+    "transactionCount": "{{count}} transactions"
   },
   "transfer": {
     "title": "Transfer Funds",
@@ -188,23 +210,99 @@
   },
   "accounts": {
     "title": "Accounts",
-    "description": "View and manage all your banking accounts in one place."
+    "description": "View and manage all your banking accounts in one place.",
+    "table": {
+      "account": "Account",
+      "type": "Type",
+      "accountNumber": "Account Number",
+      "sortCode": "Sort Code",
+      "balance": "Balance",
+      "status": "Status",
+      "accountDetails": "Account Details"
+    }
   },
   "analytics": {
     "title": "Analytics",
-    "description": "In-depth analysis of your spending, income, and financial trends."
+    "description": "In-depth analysis of your spending, income, and financial trends.",
+    "expenseBreakdown": "Expense Breakdown",
+    "balanceGrowth": "Balance Growth",
+    "last6Months": "Last 6 months",
+    "monthlyTransfers": "Monthly Transfers",
+    "incomingVsOutgoing": "Incoming vs Outgoing",
+    "incoming": "Incoming",
+    "outgoing": "Outgoing",
+    "amount": "Amount",
+    "balance": "Balance"
   },
   "investments": {
     "title": "Investments",
-    "description": "Track your investment portfolio performance and holdings."
+    "description": "Track your investment portfolio performance and holdings.",
+    "totalPortfolioValue": "Total Portfolio Value",
+    "totalInvested": "Total Invested",
+    "totalReturn": "Total Return",
+    "riskScore": "Risk Score",
+    "holdings": "Holdings",
+    "holding": "Holding",
+    "shares": "Shares",
+    "avgPrice": "Avg Price",
+    "currentPrice": "Current Price",
+    "marketValue": "Market Value",
+    "gainLoss": "Gain/Loss",
+    "allocation": "Allocation",
+    "portfolioPerformance": "Portfolio Performance",
+    "last6Months": "Last 6 months",
+    "sectorAllocation": "Sector Allocation",
+    "sectors": "sectors",
+    "allocated": "Allocated",
+    "portfolioValue": "Portfolio Value"
   },
   "cards": {
     "title": "Cards",
-    "description": "Manage your debit and credit cards securely."
+    "description": "Manage your debit and credit cards securely.",
+    "cardHolder": "Card Holder",
+    "expires": "Expires",
+    "freeze": "Freeze Card",
+    "unfreeze": "Unfreeze Card",
+    "creditLimit": "Credit Limit",
+    "dailyLimit": "Daily Limit",
+    "remaining": "remaining",
+    "frozen": "Frozen",
+    "active": "Active",
+    "recentTransactions": "Recent Card Transactions",
+    "table": {
+      "date": "Date",
+      "merchant": "Merchant",
+      "amount": "Amount",
+      "status": "Status"
+    }
   },
   "settings": {
     "title": "Settings",
-    "description": "Manage your profile, preferences, and security settings."
+    "description": "Manage your profile, preferences, and security settings.",
+    "profileInformation": "Profile Information",
+    "preferences": "Preferences",
+    "security": "Security",
+    "dangerZone": "Danger Zone",
+    "fullName": "Full Name",
+    "emailAddress": "Email Address",
+    "memberSince": "Member Since",
+    "accountStatus": "Account Status",
+    "verified": "Verified",
+    "language": "Language",
+    "languageDesc": "Choose your preferred language for the interface",
+    "currencyDisplay": "Currency Display",
+    "currencyDesc": "All monetary values are displayed in USD",
+    "password": "Password",
+    "passwordDesc": "Last changed 3 months ago",
+    "changePassword": "Change Password",
+    "twoFactor": "Two-Factor Authentication",
+    "twoFactorDesc": "Add an extra layer of security to your account",
+    "enable2FA": "Enable 2FA",
+    "activeSessions": "Active Sessions",
+    "sessionsDesc": "You are logged in on this device",
+    "activeSessionCount": "1 Active Session",
+    "closeAccount": "Close Account",
+    "closeAccountDesc": "Permanently close your account and remove all associated data. This action cannot be undone."
   },
   "language": {
     "ariaLabel": "Change language",

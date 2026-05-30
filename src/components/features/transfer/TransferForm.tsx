@@ -10,7 +10,6 @@ import Flashbar from "@/components/ui/Flashbar";
 import type { FlashbarProps } from "@/components/ui/Flashbar";
 import Form from "@/components/ui/Form";
 import FormField from "@/components/ui/FormField";
-import Header from "@/components/ui/Header";
 import Input from "@/components/ui/Input";
 import Select from "@/components/ui/Select";
 import SpaceBetween from "@/components/ui/SpaceBetween";
@@ -21,7 +20,7 @@ import { useTransfer } from "@/hooks/useTransfer";
 import styles from "./TransferForm.module.scss";
 
 export function TransferForm() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { accounts } = useAccounts();
   const { control, submit, errors, status, serverError, reset } = useTransfer(accounts);
   const [dismissed, setDismissed] = useState(false);
@@ -30,7 +29,7 @@ export function TransferForm() {
     value: a.id,
     label: `${a.name} (${a.maskedNumber})`,
     description: t("transfer.form.balanceLabel", {
-      balance: a.balance.toLocaleString("en-US", { style: "currency", currency: a.currency }),
+      balance: a.balance.toLocaleString(i18n.language, { style: "currency", currency: a.currency }),
     }),
   }));
 
@@ -74,11 +73,11 @@ export function TransferForm() {
         {flashItems.length > 0 && <Flashbar items={flashItems} />}
         <div role="form" aria-label={t("transfer.form.ariaLabel")}>
           <Form
-            header={
-              <Header variant="h2" description={t("transfer.description")}>
-                {t("transfer.title")}
-              </Header>
-            }
+            // header={
+            //   <Header variant="h2" description={t("transfer.description")}>
+            //     {t("transfer.title")}
+            //   </Header>
+            // } letme Comment out the xtra transfer funds as it would be good it stays in the pageClient
             actions={
               <SpaceBetween direction="horizontal" size="xs">
                 <Button variant="link" onClick={reset} disabled={status === "loading"}>
