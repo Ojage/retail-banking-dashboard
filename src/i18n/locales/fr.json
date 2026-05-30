@@ -83,6 +83,7 @@
   "auth": {
     "logo": "RetBankX",
     "backToHome": "← Retour à l'accueil",
+    "demo": "Continuer en mode démo",
     "login": {
       "title": "Bon retour parmi nous",
       "subtitle": "Connectez-vous à votre compte pour continuer.",

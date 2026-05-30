@@ -1,14 +1,13 @@
 import type { Middleware } from "@reduxjs/toolkit";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const transferAuditMiddleware: Middleware<Record<string, never>, any> =
-  () => (next) => (action) => {
-    const result = next(action);
-    const actionType = (action as { type: string }).type;
-    if (actionType.endsWith("/fulfilled") && actionType.includes("simulateTransfer")) {
-      const payload = (
-        action as { payload?: { fromAccountId?: string; toAccountId?: string; amount?: number } }
-      ).payload;
+export const transferAuditMiddleware: Middleware = () => (next) => (action) => {
+  const result = next(action);
+  const actionType = (action as { type: string }).type;
+  if (actionType.endsWith("/fulfilled") && actionType.includes("simulateTransfer")) {
+    const payload = (
+      action as { payload?: { fromAccountId?: string; toAccountId?: string; amount?: number } }
+    ).payload;
+    if (process.env.NODE_ENV !== "production") {
       console.log("[AUDIT]", {
         // eslint-disable-line no-console
         event: "TRANSFER_COMPLETED",
@@ -18,5 +17,6 @@ export const transferAuditMiddleware: Middleware<Record<string, never>, any> =
         timestamp: new Date().toISOString(),
       });
     }
-    return result;
-  };
+  }
+  return result;
+};

@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 
 import { PasswordInput } from "@/components/shared/PasswordInput";
+import Spinner from "@/components/ui/Spinner";
 import { useAuth } from "@/hooks/useAuth";
 
 import styles from "./AuthForm.module.scss";
@@ -16,7 +17,7 @@ import styles from "./AuthForm.module.scss";
 export function SignupForm() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { user, loading, signup } = useAuth();
+  const { user, loading, signup, demoLogin } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +29,7 @@ export function SignupForm() {
   }, [user, loading, router]);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [demoLoading, setDemoLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -151,9 +153,37 @@ export function SignupForm() {
           </div>
 
           <button type="submit" className={styles.submitButton} disabled={submitting}>
-            {submitting ? t("auth.signup.submitting") : t("auth.signup.submit")}
+            {submitting ? (
+              <span className={styles.buttonSpinner}>
+                <Spinner size="normal" />
+                {t("auth.signup.submitting")}
+              </span>
+            ) : (
+              t("auth.signup.submit")
+            )}
           </button>
         </form>
+
+        <div className={styles.divider} />
+
+        <button
+          type="button"
+          className={styles.demoButton}
+          disabled={demoLoading}
+          onClick={() => {
+            setDemoLoading(true);
+            demoLogin();
+            router.push("/dashboard");
+          }}
+        >
+          {demoLoading ? (
+            <span className={styles.buttonSpinner}>
+              <Spinner size="normal" />
+            </span>
+          ) : (
+            t("auth.demo")
+          )}
+        </button>
 
         <div className={styles.link}>
           {t("auth.signup.hasAccount")}{" "}

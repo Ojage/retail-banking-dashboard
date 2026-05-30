@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 
 import { PasswordInput } from "@/components/shared/PasswordInput";
+import Spinner from "@/components/ui/Spinner";
 import { useAuth } from "@/hooks/useAuth";
 
 import styles from "./AuthForm.module.scss";
@@ -16,7 +17,7 @@ import styles from "./AuthForm.module.scss";
 export function LoginForm() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { user, loading, login } = useAuth();
+  const { user, loading, login, demoLogin } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,6 +28,7 @@ export function LoginForm() {
   }, [user, loading, router]);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [demoLoading, setDemoLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,9 +106,37 @@ export function LoginForm() {
           </div>
 
           <button type="submit" className={styles.submitButton} disabled={submitting}>
-            {submitting ? t("auth.login.submitting") : t("auth.login.submit")}
+            {submitting ? (
+              <span className={styles.buttonSpinner}>
+                <Spinner size="normal" />
+                {t("auth.login.submitting")}
+              </span>
+            ) : (
+              t("auth.login.submit")
+            )}
           </button>
         </form>
+
+        <div className={styles.divider} />
+
+        <button
+          type="button"
+          className={styles.demoButton}
+          disabled={demoLoading}
+          onClick={() => {
+            setDemoLoading(true);
+            demoLogin();
+            router.push("/dashboard");
+          }}
+        >
+          {demoLoading ? (
+            <span className={styles.buttonSpinner}>
+              <Spinner size="normal" />
+            </span>
+          ) : (
+            t("auth.demo")
+          )}
+        </button>
 
         <div className={styles.link}>
           {t("auth.login.noAccount")} <Link href="/auth/signup">{t("auth.login.createLink")}</Link>

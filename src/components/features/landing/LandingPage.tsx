@@ -316,9 +316,14 @@ export function LandingPage() {
             <span className={styles.footerLink} role="link" tabIndex={0}>
               {t("landing.footer.terms")}
             </span>
-            <span className={styles.footerLink} role="link" tabIndex={0}>
+            <a
+              href="https://linktr.ee/ojage"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.footerLink}
+            >
               {t("landing.footer.contact")}
-            </span>
+            </a>
           </div>
         </div>
         <div className={styles.footerLegal}>

@@ -67,11 +67,20 @@ export function useAuth() {
     []
   );
 
+  const demoLogin = useCallback(() => {
+    setUser({
+      id: "demo-user",
+      email: "demo@retbankx.com",
+      name: "Demo User",
+      createdAt: new Date().toISOString(),
+    });
+  }, []);
+
   const logout = useCallback(async () => {
     await fetch("/api/auth/logout", { method: "POST" });
     setUser(null);
     router.push("/");
   }, [router]);
 
-  return { user, loading, login, signup, logout };
+  return { user, loading, login, signup, demoLogin, logout };
 }

@@ -44,6 +44,7 @@ function AnimatedNumber({ value, format }: { value: number; format: (v: number) 
         cancelAnimationFrame(frameRef.current);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- displayValue intentionally excluded to prevent infinite loop (effect animates toward value)
   }, [value]);
 
   return <>{format(displayValue)}</>;
